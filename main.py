@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from logging.handlers import RotatingFileHandler
 
-from routes import handle_deepstream
+from routes.deepstream import router as deepstream_router
 
 log_dir = Path("logs")
 log_dir.mkdir(exist_ok=True)
@@ -48,8 +48,8 @@ async def lifespan(app: FastAPI):
     logging.info("Stopping application...")
 
 app = FastAPI(
-    title="SSH 설정 관리 API",
-    description="SSH/SFTP 설정을 웹 UI로 관리할 수 있는 API 서비스",
+    title="DeepStream 관리 API",
+    description="DeepStream 인스턴스와 분석 작업을 관리할 수 있는 API 서비스",
     version="1.0.0",
     lifespan=lifespan
 )
@@ -61,8 +61,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# SSH 라우터 등록
-app.include_router(handle_deepstream.router)
+# DeepStream 라우터 등록
+app.include_router(deepstream_router)
 
 @app.get("/", tags=["Root"])
 async def root():

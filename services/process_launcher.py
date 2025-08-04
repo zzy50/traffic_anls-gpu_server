@@ -22,6 +22,7 @@ class ProcessInfo:
     instance_id: str  # APP_ID
     config_path: str
     docker_container: str
+    streams_count: Optional[int] = None  # launch 시 전달된 스트림 개수
     host_pid: Optional[int] = None  # 호스트의 subprocess PID
     container_pid: Optional[int] = None  # 컨테이너 내부 PID
     status: str = "launching"  # launching, running, stopped, error
@@ -44,13 +45,40 @@ class ProcessLauncher:
         unique_suffix = str(uuid.uuid4())[:8]
         return f"{prefix}_{timestamp}_{unique_suffix}"
     
+    def check_container_running(self, container_name: str) -> bool:
+        """Docker 컨테이너 실행 여부 확인"""
+        try:
+            check_cmd = ["docker", "inspect", "-f", "{{.State.Running}}", container_name]
+            result = subprocess.run(
+                check_cmd, 
+                capture_output=True, 
+                text=True, 
+                timeout=10
+            )
+            
+            if result.returncode == 0:
+                is_running = result.stdout.strip().lower() == "true"
+                if is_running:
+                    logger.debug(f"컨테이너 실행 상태 확인: {container_name} - 실행 중")
+                else:
+                    logger.warning(f"컨테이너가 실행 중이 아닙니다: {container_name}")
+                return is_running
+            else:
+                logger.error(f"컨테이너 상태 확인 실패: {container_name} - {result.stderr.strip()}")
+                return False
+                
+        except subprocess.TimeoutExpired:
+            logger.error(f"컨테이너 상태 확인 시간 초과: {container_name}")
+            return False
+        except Exception as e:
+            logger.error(f"컨테이너 상태 확인 중 오류 발생: {container_name} - {str(e)}")
+            return False
 
     
     async def launch_deepstream_app(
         self,
         config_path: str,
         streams_count: Optional[int] = None,
-        gpu_allocated: Optional[List[int]] = None,
         instance_id: Optional[str] = None,
         docker_container: Optional[str] = None,
         additional_args: Optional[List[str]] = None
@@ -61,7 +89,6 @@ class ProcessLauncher:
         Args:
             config_path: DeepStream 설정 파일 경로
             streams_count: 스트림 개수 (설정에서 자동 추출 가능)
-            gpu_allocated: 할당할 GPU ID 목록
             instance_id: 인스턴스 ID (없으면 자동 생성)
             docker_container: 도커 컨테이너 이름
             additional_args: 추가 deepstream-app 인자들
@@ -80,13 +107,20 @@ class ProcessLauncher:
             if not additional_args:
                 additional_args = []
 
+            # 컨테이너 실행 여부 확인
+            if not self.check_container_running(docker_container):
+                error_msg = f"Docker 컨테이너가 실행 중이 아닙니다: {docker_container}. 컨테이너를 먼저 실행해주세요."
+                logger.error(error_msg)
+                return False, error_msg, None
+
             # 프로세스 정보 생성
             process_id = str(uuid.uuid4())
             process_info = ProcessInfo(
                 process_id=process_id,
                 instance_id=instance_id,
                 config_path=config_path,
-                docker_container=docker_container
+                docker_container=docker_container,
+                streams_count=streams_count
             )
             
             # DeepStream 실행 명령 구성
@@ -118,9 +152,9 @@ class ProcessLauncher:
             self.processes[process_id] = process_info
             
             # DeepStream 매니저에 인스턴스 등록
-            if streams_count and gpu_allocated:
+            if streams_count:
                 deepstream_manager.register_instance(
-                    instance_id, config_path, streams_count, gpu_allocated
+                    instance_id, config_path, streams_count
                 )
             
             logger.info(f"DeepStream 앱 실행 성공: {instance_id} (Host PID: {proc.pid})")
@@ -160,6 +194,12 @@ class ProcessLauncher:
         process_info = self.get_process_info(process_id)
         if not process_info:
             return False, f"프로세스를 찾을 수 없습니다: {process_id}"
+        
+        # 컨테이너 실행 여부 확인
+        if not self.check_container_running(process_info.docker_container):
+            logger.warning(f"컨테이너가 실행 중이 아니므로 프로세스가 이미 종료된 것으로 간주합니다: {process_info.instance_id}")
+            process_info.status = "stopped"
+            return True, f"컨테이너가 실행 중이 아니므로 프로세스가 이미 종료된 것으로 처리되었습니다: {process_info.instance_id}"
         
         try:
             # 컨테이너 내부 프로세스 종료
@@ -201,6 +241,12 @@ class ProcessLauncher:
         process_info = self.get_process_info(process_id)
         if not process_info:
             return False, f"프로세스를 찾을 수 없습니다: {process_id}"
+        
+        # 컨테이너 실행 여부 확인
+        if not self.check_container_running(process_info.docker_container):
+            logger.warning(f"컨테이너가 실행 중이 아니므로 프로세스 상태를 확인할 수 없습니다: {process_info.instance_id}")
+            process_info.status = "stopped"
+            return False, f"컨테이너가 실행 중이 아닙니다: {process_info.docker_container}"
         
         try:
             # 컨테이너 내부에서 프로세스 상태 확인

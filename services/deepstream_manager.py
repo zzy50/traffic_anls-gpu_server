@@ -75,7 +75,6 @@ class DeepStreamInstance:
     instance_id: str
     config_path: str
     streams_count: int
-    gpu_allocated: List[int]
     status: InstanceStatus = InstanceStatus.IDLE
     ws_status: WSStatus = WSStatus.DISCONNECTED
     launched_at: Optional[datetime] = None
@@ -94,38 +93,6 @@ class DeepStreamManager:
     
     def __init__(self):
         self.instances: Dict[str, DeepStreamInstance] = {}
-        self.sample_data = self._load_sample_data()
-        self._initialize_sample_instances()
-    
-    def _load_sample_data(self) -> Dict:
-        """샘플 데이터 로드"""
-        try:
-            with open("sample_data.json", "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception as e:
-            logger.error(f"샘플 데이터 로드 실패: {e}")
-            return {}
-    
-    def _initialize_sample_instances(self):
-        """샘플 데이터로 초기 인스턴스들 생성"""
-        for instance_data in self.sample_data.get("deepstream_instances", []):
-            instance = DeepStreamInstance(
-                instance_id=instance_data["instance_id"],
-                config_path=instance_data["config_path"],
-                streams_count=instance_data["streams_count"],
-                gpu_allocated=instance_data["gpu_allocated"],
-                status=InstanceStatus(instance_data["status"]),
-                ws_status=WSStatus(instance_data["ws_status"]),
-                launched_at=datetime.fromisoformat(instance_data["launched_at"]),
-                log_path=instance_data["log_path"]
-            )
-            
-            # 스트림 초기화
-            for i in range(instance.streams_count):
-                instance.streams[i] = StreamInfo(stream_id=i)
-            
-            self.instances[instance.instance_id] = instance
-            logger.info(f"샘플 인스턴스 생성: {instance.instance_id}")
     
     def get_instance(self, instance_id: str) -> Optional[DeepStreamInstance]:
         """인스턴스 조회"""
@@ -136,13 +103,12 @@ class DeepStreamManager:
         return list(self.instances.values())
     
     def register_instance(self, instance_id: str, config_path: str, 
-                         streams_count: int, gpu_allocated: List[int]) -> DeepStreamInstance:
+                         streams_count: int) -> DeepStreamInstance:
         """새 인스턴스 등록"""
         instance = DeepStreamInstance(
             instance_id=instance_id,
             config_path=config_path,
             streams_count=streams_count,
-            gpu_allocated=gpu_allocated,
             launched_at=datetime.now()
         )
         

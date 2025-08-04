@@ -57,7 +57,6 @@ class AppReadyMessage(BaseModel):
     streams_count: int
     status: StatusType
     version: str = "DeepStream-Yolo v7.1"
-    gpu_allocated: List[int]
     start_time: str = Field(default_factory=lambda: datetime.now().isoformat())
 
 

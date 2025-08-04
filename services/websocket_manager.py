@@ -150,8 +150,7 @@ class WebSocketManager:
                 deepstream_manager.register_instance(
                     message.instance_id,
                     message.config_path,
-                    message.streams_count,
-                    message.gpu_allocated
+                    message.streams_count
                 )
             
             deepstream_manager.update_instance_status(
@@ -170,19 +169,23 @@ class WebSocketManager:
                 logger.warning(f"인스턴스에 해당하는 프로세스 정보를 찾을 수 없습니다: {message.instance_id}")
             
             # 검증 및 응답
-            is_valid = await self._verify_instance_config(message)
+            is_instance_id_valid = await self._verify_instance_id(message)
+            is_streams_count_valid = await self._verify_streams_count(message)
             
             response = ExecuteAckMessage(
                 request_id=message.request_id,
                 instance_id=message.instance_id,
-                config_verified=is_valid,
-                streams_count_verified=True,
-                status=StatusType.OK if is_valid else StatusType.ERROR
+                config_verified=is_instance_id_valid,
+                streams_count_verified=is_streams_count_valid,
+                status=StatusType.OK if (is_instance_id_valid and is_streams_count_valid) else StatusType.ERROR
             )
             
-            if not is_valid:
+            if not is_instance_id_valid:
                 response.error_code = "CONFIG_MISMATCH"
                 response.error_message = "Config verification failed"
+            elif not is_streams_count_valid:
+                response.error_code = "STREAMS_COUNT_MISMATCH"
+                response.error_message = "Streams count verification failed"
             
             await connection.send_message(response)
             logger.info(f"앱 준비 완료 처리: {message.instance_id}")
@@ -190,16 +193,40 @@ class WebSocketManager:
         except Exception as e:
             logger.error(f"앱 준비 메시지 처리 오류: {e}")
     
-    async def _verify_instance_config(self, message: AppReadyMessage) -> bool:
+    async def _verify_instance_id(self, message: AppReadyMessage) -> bool:
         """인스턴스 설정 검증"""
-        # 샘플 데이터와 비교하여 검증
-        sample_instances = deepstream_manager.sample_data.get("deepstream_instances", [])
-        for sample in sample_instances:
-            if (sample["instance_id"] == message.instance_id and 
-                sample["config_path"] == message.config_path and
-                sample["streams_count"] == message.streams_count):
-                return True
-        return False
+        # 기본적인 인스턴스 ID 검증
+        return message.instance_id is not None and len(message.instance_id) > 0
+    
+    async def _verify_streams_count(self, message: AppReadyMessage) -> bool:
+        """streams_count 검증"""
+        try:
+            # ProcessLauncher에서 해당 인스턴스의 프로세스 정보 조회
+            from services.process_launcher import process_launcher
+            process_info = process_launcher.get_process_by_instance_id(message.instance_id)
+            
+            if not process_info:
+                logger.warning(f"인스턴스에 해당하는 프로세스 정보를 찾을 수 없습니다: {message.instance_id}")
+                return False
+            
+            # launch 시 전달된 streams_count가 없으면 기본 검증 수행
+            if process_info.streams_count is None:
+                logger.info(f"Launch 시 streams_count가 없어 기본 검증 수행: {message.instance_id}")
+                return message.streams_count > 0
+            
+            # launch 시 전달된 streams_count와 deepstream-app이 보고한 값 비교
+            if process_info.streams_count != message.streams_count:
+                logger.error(f"Streams count 불일치 - 예상: {process_info.streams_count}, 실제: {message.streams_count}")
+                return False
+            
+            logger.info(f"Streams count 검증 성공: {message.instance_id} -> {message.streams_count}")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Streams count 검증 중 오류: {e}")
+            return False
+    
+
     
     async def _handle_analysis_started(self, connection: WebSocketConnection, message_data: Dict):
         """분석 시작 응답 처리"""

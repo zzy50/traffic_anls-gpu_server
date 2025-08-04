@@ -224,3 +224,65 @@ AttributeError: 'str' object has no attribute 'value'
 2025-08-04 11:23:44.027 - Application startup complete.
 2025-08-04 11:23:44.028 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
 2025-08-04 11:24:24.378 - 192.168.100.103:0 - "GET / HTTP/1.1" 200
+2025-08-04 13:45:07.099 - Shutting down
+2025-08-04 13:45:07.203 - Waiting for application shutdown.
+2025-08-04 13:45:07.205 - root - INFO - Stopping application...
+2025-08-04 13:45:07.205 - Application shutdown complete.
+2025-08-04 13:45:07.206 - Finished server process [2328424]
+2025-08-04 13:45:07.706 - Started server process [2417479]
+2025-08-04 13:45:07.706 - Waiting for application startup.
+2025-08-04 13:45:07.707 - root - INFO - Starting application...
+2025-08-04 13:45:07.709 - Application startup complete.
+2025-08-04 13:45:07.710 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-04 15:25:20.346 - Shutting down
+2025-08-04 15:25:20.447 - Waiting for application shutdown.
+2025-08-04 15:25:20.448 - root - INFO - Stopping application...
+2025-08-04 15:25:20.450 - Application shutdown complete.
+2025-08-04 15:25:20.452 - Finished server process [2417479]
+2025-08-04 15:25:20.966 - Started server process [2480353]
+2025-08-04 15:25:20.966 - Waiting for application startup.
+2025-08-04 15:25:20.967 - root - INFO - Starting application...
+2025-08-04 15:25:20.968 - Application startup complete.
+2025-08-04 15:25:20.970 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-04 15:29:00.309 - 192.168.100.123:0 - "GET / HTTP/1.1" 200
+2025-08-04 15:29:00.405 - 192.168.100.123:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-08-04 15:29:05.009 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-04 15:29:05.392 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
+2025-08-04 15:30:21.931 - Shutting down
+2025-08-04 15:30:22.032 - Waiting for application shutdown.
+2025-08-04 15:30:22.032 - root - INFO - Stopping application...
+2025-08-04 15:30:22.034 - Application shutdown complete.
+2025-08-04 15:30:22.036 - Finished server process [2480353]
+2025-08-04 15:30:22.539 - Started server process [2484267]
+2025-08-04 15:30:22.539 - Waiting for application startup.
+2025-08-04 15:30:22.540 - root - INFO - Starting application...
+2025-08-04 15:30:22.541 - Application startup complete.
+2025-08-04 15:30:22.543 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-04 15:30:23.826 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-04 15:30:23.995 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
+2025-08-04 15:30:30.919 - Shutting down
+2025-08-04 15:30:31.019 - Waiting for application shutdown.
+2025-08-04 15:30:31.020 - root - INFO - Stopping application...
+2025-08-04 15:30:31.021 - Application shutdown complete.
+2025-08-04 15:30:31.022 - Finished server process [2484267]
+2025-08-04 15:30:31.521 - Started server process [2484377]
+2025-08-04 15:30:31.521 - Waiting for application startup.
+2025-08-04 15:30:31.522 - root - INFO - Starting application...
+2025-08-04 15:30:31.524 - Application startup complete.
+2025-08-04 15:30:31.525 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-04 15:30:38.678 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-04 15:30:38.795 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
+2025-08-04 17:56:36.611 - Shutting down
+2025-08-04 17:56:36.711 - Waiting for application shutdown.
+2025-08-04 17:56:36.712 - root - INFO - Stopping application...
+2025-08-04 17:56:36.714 - Application shutdown complete.
+2025-08-04 17:56:36.715 - Finished server process [2484377]
+2025-08-04 17:56:37.258 - Started server process [2579056]
+2025-08-04 17:56:37.258 - Waiting for application startup.
+2025-08-04 17:56:37.260 - root - INFO - Starting application...
+2025-08-04 17:56:37.261 - Application startup complete.
+2025-08-04 17:56:37.262 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-04 17:56:39.210 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-04 17:56:39.372 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
+2025-08-04 18:22:29.489 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-04 18:22:29.595 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
