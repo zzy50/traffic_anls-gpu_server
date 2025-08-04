@@ -1,0 +1,11 @@
+[Unit]
+Description=GPU server for Traffic analysis
+After=network.target
+
+[Service]
+WorkingDirectory=/mnt/storage/admin_storage/traffic_anls-gpu_server
+ExecStart=/home/cityeyelab/pkgs/python_envs/.legacy_backend/bin/python main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
