@@ -124,7 +124,7 @@ class ProcessLauncher:
             )
             
             # DeepStream 실행 명령 구성
-            deepstream_cmd = ["deepstream-app", "-c", config_path] + additional_args
+            deepstream_cmd = ["/opt/nvidia/deepstream/deepstream-7.1/cityeyelab/vmnt/DeepStream-Yolo/custom_app_7.1/dist/deepstream-app", "-c", config_path] + additional_args
             
             # Docker exec 명령 구성
             docker_cmd = [
