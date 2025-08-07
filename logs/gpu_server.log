@@ -4,3 +4,202 @@
 2025-08-04 18:44:02.533 - Application startup complete.
 2025-08-04 18:44:02.534 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
 2025-08-04 18:49:26.079 - 192.168.100.123:0 - "POST /deepstream/processes/1531148/terminate HTTP/1.1" 500
+2025-08-05 11:27:18.834 - Shutting down
+2025-08-05 11:27:18.938 - Waiting for application shutdown.
+2025-08-05 11:27:18.940 - root - INFO - Stopping application...
+2025-08-05 11:27:18.941 - Application shutdown complete.
+2025-08-05 11:27:18.942 - Finished server process [2612108]
+2025-08-05 11:27:19.445 - Started server process [3256655]
+2025-08-05 11:27:19.445 - Waiting for application startup.
+2025-08-05 11:27:19.446 - root - INFO - Starting application...
+2025-08-05 11:27:19.448 - Application startup complete.
+2025-08-05 11:27:19.449 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-05 19:22:51.102 - Shutting down
+2025-08-05 19:22:51.222 - Waiting for application shutdown.
+2025-08-05 19:22:51.227 - root - INFO - Stopping application...
+2025-08-05 19:22:51.228 - Application shutdown complete.
+2025-08-05 19:22:51.230 - Finished server process [3256655]
+2025-08-05 19:24:46.446 - Started server process [3864019]
+2025-08-05 19:24:46.447 - Waiting for application startup.
+2025-08-05 19:24:46.454 - root - INFO - Starting application...
+2025-08-05 19:24:46.472 - Application startup complete.
+2025-08-05 19:24:46.484 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-05 19:24:47.913 - Shutting down
+2025-08-05 19:24:48.014 - Waiting for application shutdown.
+2025-08-05 19:24:48.015 - root - INFO - Stopping application...
+2025-08-05 19:24:48.023 - Application shutdown complete.
+2025-08-05 19:24:48.025 - Finished server process [3864019]
+2025-08-05 19:24:52.001 - Started server process [3877458]
+2025-08-05 19:24:52.002 - Waiting for application startup.
+2025-08-05 19:24:52.009 - root - INFO - Starting application...
+2025-08-05 19:24:52.013 - Application startup complete.
+2025-08-05 19:24:52.017 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-05 19:24:56.873 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-05 19:24:57.044 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
+2025-08-06 13:35:00.110 - 192.168.100.123:0 - "GET / HTTP/1.1" 200
+2025-08-06 13:35:00.208 - 192.168.100.123:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-08-06 13:35:04.042 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-06 13:35:04.102 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
+2025-08-06 13:38:02.172 - Shutting down
+2025-08-06 13:38:02.274 - Waiting for application shutdown.
+2025-08-06 13:38:02.275 - root - INFO - Stopping application...
+2025-08-06 13:38:02.277 - Application shutdown complete.
+2025-08-06 13:38:02.279 - Finished server process [3877458]
+2025-08-06 13:38:02.921 - Started server process [959366]
+2025-08-06 13:38:02.921 - Waiting for application startup.
+2025-08-06 13:38:02.923 - root - INFO - Starting application...
+2025-08-06 13:38:02.925 - Application startup complete.
+2025-08-06 13:38:02.926 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-06 13:40:39.142 - Shutting down
+2025-08-06 13:40:39.243 - Waiting for application shutdown.
+2025-08-06 13:40:39.244 - root - INFO - Stopping application...
+2025-08-06 13:40:39.245 - Application shutdown complete.
+2025-08-06 13:40:39.247 - Finished server process [959366]
+2025-08-06 13:40:39.880 - Started server process [962505]
+2025-08-06 13:40:39.880 - Waiting for application startup.
+2025-08-06 13:40:39.882 - root - INFO - Starting application...
+2025-08-06 13:40:39.886 - Application startup complete.
+2025-08-06 13:40:39.887 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-06 13:40:40.653 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-06 13:40:40.770 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
+2025-08-06 13:40:48.061 - services.process_launcher - ERROR - DeepStream 앱 실행 실패: ProcessInfo.__init__() got an unexpected keyword argument 'docker_container'
+2025-08-06 13:40:48.062 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-06 13:41:47.593 - Shutting down
+2025-08-06 13:41:47.694 - Waiting for application shutdown.
+2025-08-06 13:41:47.695 - root - INFO - Stopping application...
+2025-08-06 13:41:47.696 - Application shutdown complete.
+2025-08-06 13:41:47.698 - Finished server process [962505]
+2025-08-06 13:41:48.284 - Started server process [964051]
+2025-08-06 13:41:48.284 - Waiting for application startup.
+2025-08-06 13:41:48.286 - root - INFO - Starting application...
+2025-08-06 13:41:48.288 - Application startup complete.
+2025-08-06 13:41:48.290 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-06 13:42:06.538 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/config_test_id.txt (streams: 5)
+2025-08-06 13:42:06.539 - services.process_launcher - INFO - 생성된 config 파일: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/config_test_id.txt
+2025-08-06 13:42:06.540 - services.process_launcher - ERROR - DeepStream 앱 실행 실패: Path.replace() takes 2 positional arguments but 3 were given
+2025-08-06 13:42:06.541 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-06 13:43:22.394 - Shutting down
+2025-08-06 13:43:22.495 - Waiting for application shutdown.
+2025-08-06 13:43:22.496 - root - INFO - Stopping application...
+2025-08-06 13:43:22.498 - Application shutdown complete.
+2025-08-06 13:43:22.499 - Finished server process [964051]
+2025-08-06 13:43:23.095 - Started server process [965836]
+2025-08-06 13:43:23.095 - Waiting for application startup.
+2025-08-06 13:43:23.097 - root - INFO - Starting application...
+2025-08-06 13:43:23.099 - Application startup complete.
+2025-08-06 13:43:23.101 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-06 13:43:24.574 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-06 13:43:24.690 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
+2025-08-06 13:43:34.700 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/config_test_id.txt (streams: 5)
+2025-08-06 13:43:34.700 - services.process_launcher - INFO - 생성된 config 파일: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/config_test_id.txt
+2025-08-06 13:43:34.701 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-06 13:43:34.704 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-06 13:43:34.704 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 966200)
+2025-08-06 13:43:34.706 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-06 14:17:21.739 - Shutting down
+2025-08-06 14:17:21.844 - Waiting for application shutdown.
+2025-08-06 14:17:21.847 - root - INFO - Stopping application...
+2025-08-06 14:17:21.848 - Application shutdown complete.
+2025-08-06 14:17:21.850 - Finished server process [965836]
+2025-08-06 14:17:22.484 - Started server process [1061816]
+2025-08-06 14:17:22.484 - Waiting for application startup.
+2025-08-06 14:17:22.486 - root - INFO - Starting application...
+2025-08-06 14:17:22.489 - Application startup complete.
+2025-08-06 14:17:22.490 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-06 14:18:42.209 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/test/config_test_id.txt (streams: 5)
+2025-08-06 14:18:42.209 - services.process_launcher - INFO - 생성된 config 파일: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/test/config_test_id.txt
+2025-08-06 14:18:42.211 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-06 14:18:42.213 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-06 14:18:42.213 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 1063295)
+2025-08-06 14:18:42.216 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-06 14:27:57.917 - Shutting down
+2025-08-06 14:27:58.022 - Waiting for application shutdown.
+2025-08-06 14:27:58.025 - root - INFO - Stopping application...
+2025-08-06 14:27:58.026 - Application shutdown complete.
+2025-08-06 14:27:58.028 - Finished server process [1061816]
+2025-08-06 14:27:58.641 - Started server process [1074784]
+2025-08-06 14:27:58.641 - Waiting for application startup.
+2025-08-06 14:27:58.643 - root - INFO - Starting application...
+2025-08-06 14:27:58.645 - Application startup complete.
+2025-08-06 14:27:58.646 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-06 14:29:45.317 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/test/config_test_id.txt (streams: 5)
+2025-08-06 14:29:45.317 - services.process_launcher - INFO - 생성된 config 파일: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/test/config_test_id.txt
+2025-08-06 14:29:45.319 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-06 14:29:45.322 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-06 14:29:45.322 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 1076970)
+2025-08-06 14:29:45.324 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-06 14:30:35.449 - Shutting down
+2025-08-06 14:30:35.551 - Waiting for application shutdown.
+2025-08-06 14:30:35.552 - root - INFO - Stopping application...
+2025-08-06 14:30:35.554 - Application shutdown complete.
+2025-08-06 14:30:35.556 - Finished server process [1074784]
+2025-08-06 14:30:36.205 - Started server process [1078285]
+2025-08-06 14:30:36.206 - Waiting for application startup.
+2025-08-06 14:30:36.208 - root - INFO - Starting application...
+2025-08-06 14:30:36.210 - Application startup complete.
+2025-08-06 14:30:36.211 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-06 14:41:48.044 - Shutting down
+2025-08-06 14:41:48.146 - Waiting for application shutdown.
+2025-08-06 14:41:48.147 - root - INFO - Stopping application...
+2025-08-06 14:41:48.149 - Application shutdown complete.
+2025-08-06 14:41:48.150 - Finished server process [1078285]
+2025-08-06 14:41:48.753 - Started server process [1091815]
+2025-08-06 14:41:48.753 - Waiting for application startup.
+2025-08-06 14:41:48.755 - root - INFO - Starting application...
+2025-08-06 14:41:48.757 - Application startup complete.
+2025-08-06 14:41:48.759 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-06 14:41:58.819 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/test/config_test_id.txt (streams: 5)
+2025-08-06 14:41:58.820 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-06 14:41:58.823 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-06 14:41:58.824 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 1092007)
+2025-08-06 14:41:58.826 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-06 16:04:58.886 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/test/config_test_id.txt (streams: 5)
+2025-08-06 16:04:58.888 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-06 16:04:58.892 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-06 16:04:58.892 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 1191193)
+2025-08-06 16:04:58.895 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-06 16:05:29.770 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/test/config_test_id.txt (streams: 5)
+2025-08-06 16:05:29.770 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-06 16:05:29.773 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-06 16:05:29.773 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 1192384)
+2025-08-06 16:05:29.775 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-06 16:26:03.692 - Shutting down
+2025-08-06 16:26:03.793 - Waiting for application shutdown.
+2025-08-06 16:26:03.795 - root - INFO - Stopping application...
+2025-08-06 16:26:03.796 - Application shutdown complete.
+2025-08-06 16:26:03.798 - Finished server process [1091815]
+2025-08-06 16:26:04.390 - Started server process [1217501]
+2025-08-06 16:26:04.390 - Waiting for application startup.
+2025-08-06 16:26:04.392 - root - INFO - Starting application...
+2025-08-06 16:26:04.394 - Application startup complete.
+2025-08-06 16:26:04.396 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-06 16:26:42.099 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/test/config_test_id.txt (streams: 5)
+2025-08-06 16:26:42.100 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-06 16:26:42.103 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-06 16:26:42.103 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 1218251)
+2025-08-06 16:26:42.106 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-06 16:30:41.094 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs/test/config_test_id.txt (streams: 5)
+2025-08-06 16:30:41.095 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-06 16:30:41.098 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-06 16:30:41.098 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 1223307)
+2025-08-06 16:30:41.101 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-06 16:50:09.380 - Shutting down
+2025-08-06 16:50:09.483 - Waiting for application shutdown.
+2025-08-06 16:50:09.484 - root - INFO - Stopping application...
+2025-08-06 16:50:09.486 - Application shutdown complete.
+2025-08-06 16:50:09.487 - Finished server process [1217501]
+2025-08-06 16:50:10.014 - Started server process [1246756]
+2025-08-06 16:50:10.014 - Waiting for application startup.
+2025-08-06 16:50:10.016 - root - INFO - Starting application...
+2025-08-06 16:50:10.017 - Application startup complete.
+2025-08-06 16:50:10.019 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-07 10:23:17.901 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/config_test_id.txt (streams: 5)
+2025-08-07 10:23:17.902 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-07 10:23:17.921 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-07 10:23:17.921 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 2508166)
+2025-08-07 10:23:17.924 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 10:24:01.434 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/config_test_id.txt (streams: 5)
+2025-08-07 10:24:01.434 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-07 10:24:01.437 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-07 10:24:01.437 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 2509361)
+2025-08-07 10:24:01.439 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200

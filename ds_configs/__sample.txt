@@ -1,0 +1,91 @@
+[application]
+enable-perf-measurement=1
+perf-measurement-interval-sec=5
+gie-kitti-output-dir=/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/outputs/bbox테스트/infer
+kitti-track-output-dir=/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/outputs/bbox테스트/track
+log-dir=/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/Deepstream-Yolo/logs
+# --- Queue System Configuration ---
+# 큐 최대 크기 (선택적, 0=무제한)
+# File Queue: ~100바이트 × 1000000개 = ~100MB (카메라당)
+# Camera Queue: ~200바이트 × 1000000개 = ~200MB (스트림당)
+queue-max-size=1000000
+
+[source0]
+enable=1
+type=3
+num-sources=1
+gpu-id=0
+cudadec-memtype=0
+uri=file:///dev/null
+# queue-source-directory=/opt/nvidia/deepstream/deepstream/cityeyelab/hdd/dev_test/test_videos/경북 1번교차로 1번카메라
+# queue-file-pattern=*.mp4
+
+[source1]
+enable=1
+type=3
+num-sources=1
+gpu-id=0
+cudadec-memtype=0
+uri=file:///dev/null
+queue-source-directory=/opt/nvidia/deepstream/deepstream/cityeyelab/hdd/dev_test/test_videos/경북 1번교차로 2번카메라
+queue-file-pattern=*.mp4
+
+[source2]
+enable=1
+type=3
+num-sources=1
+gpu-id=0
+cudadec-memtype=0
+uri=file:///dev/null
+queue-source-directory=/opt/nvidia/deepstream/deepstream/cityeyelab/hdd/dev_test/test_videos/경북 1번교차로 3번카메라
+queue-file-pattern=*.mp4
+
+[streammux]
+gpu-id=0
+#Note: when used with [source-list], batch-size is ignored
+#instead, max-batch-size config is used
+batch-size=32
+##time out in usec, to wait after the first buffer is available
+##to push the batch even if the complete batch is not formed
+batched-push-timeout=40000
+## Set muxer output width and height
+width=1920
+height=1080
+##Enable to maintain aspect ratio wrt source, and allow black borders, works
+##along with width, height properties
+enable-padding=0
+nvbuf-memory-type=0
+## If set to TRUE, system timestamp will be attached as ntp timestamp
+## If set to FALSE, ntp timestamp from rtspsrc, if available, will be attached
+attach-sys-ts-as-ntp=1
+## drop-pipeline-eos ignores EOS from individual streams muxed in the DS pipeline
+## It is useful with source-list/use-nvmultiurisrcbin=1 where the REST server
+## will be running post last stream EOS to accept new streams
+drop-pipeline-eos=1
+
+##Boolean property to inform muxer that sources are live
+##When using nvmultiurisrcbin live-source=1 is preferred default
+##to allow batching of available buffers when number of sources is < max-batch-size configuration
+live-source=0
+
+[primary-gie]
+enable=1
+gpu-id=0
+gie-unique-id=1
+nvbuf-memory-type=0
+config-file=config_infer_primary_yoloV8.txt
+
+[tracker]
+enable=1
+tracker-width=960
+tracker-height=960
+ll-lib-file=/opt/nvidia/deepstream/deepstream/lib/libnvds_nvmultiobjecttracker.so
+# ll-config-file=/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/DeepStream-Yolo/configs/samples/config_tracker_NvDCF_accuracy_custom.yml
+# ll-config-file=/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/DeepStream-Yolo/configs/samples/config_tracker_NvDCF_max_perf.yml
+# ll-config-file=/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/DeepStream-Yolo/configs/samples/config_tracker_NvDCF_perf.yml
+ll-config-file=/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/DeepStream-Yolo/configs/samples/config_tracker_NvSORT_custom.yml
+gpu-id=0
+display-tracking-id=1
+
+[tests]
+file-loop=0

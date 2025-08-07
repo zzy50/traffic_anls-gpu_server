@@ -5,6 +5,7 @@ import os
 import subprocess
 import time
 import uuid
+import shutil
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -20,16 +21,15 @@ class ProcessInfo:
     """실행된 프로세스 정보"""
     process_id: str  # 내부 관리용 UUID
     instance_id: str  # APP_ID
-    config_path: str
-    docker_container: str
+    log_dir: str
     streams_count: Optional[int] = None  # launch 시 전달된 스트림 개수
     host_pid: Optional[int] = None  # 호스트의 subprocess PID
     container_pid: Optional[int] = None  # 컨테이너 내부 PID
     status: str = "launching"  # launching, running, stopped, error
     launched_at: datetime = field(default_factory=datetime.now)
-    log_path: Optional[str] = None
     command: Optional[str] = None
     error_message: Optional[str] = None
+    log_dir: Optional[str] = None
 
 
 class ProcessLauncher:
@@ -77,21 +77,19 @@ class ProcessLauncher:
     
     async def launch_deepstream_app(
         self,
-        config_path: str,
+        log_dir: str,
         streams_count: Optional[int] = None,
         instance_id: Optional[str] = None,
-        docker_container: Optional[str] = None,
-        additional_args: Optional[List[str]] = None
     ) -> Tuple[bool, str, Optional[ProcessInfo]]:
         """
         DeepStream 앱 실행
         
         Args:
-            config_path: DeepStream 설정 파일 경로
+            log_dir: 로그 디렉토리 경로
+            (/mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs)
             streams_count: 스트림 개수 (설정에서 자동 추출 가능)
             instance_id: 인스턴스 ID (없으면 자동 생성)
             docker_container: 도커 컨테이너 이름
-            additional_args: 추가 deepstream-app 인자들
         
         Returns:
             (성공여부, 메시지, 프로세스정보)
@@ -101,11 +99,8 @@ class ProcessLauncher:
             if not instance_id:
                 instance_id = self.generate_instance_id()
             
-            if not docker_container:
-                docker_container = self.default_container
-            
-            if not additional_args:
-                additional_args = []
+            docker_container = "infer_traffic"
+            app_path_in_container = "/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/DeepStream-Yolo/custom_app_7.1/dist/deepstream-app"
 
             # 컨테이너 실행 여부 확인
             if not self.check_container_running(docker_container):
@@ -118,18 +113,26 @@ class ProcessLauncher:
             process_info = ProcessInfo(
                 process_id=process_id,
                 instance_id=instance_id,
-                config_path=config_path,
-                docker_container=docker_container,
+                log_dir=log_dir,
                 streams_count=streams_count
             )
+
+            
+            # streams_count가 없으면 기본값 1로 설정
+            if streams_count and streams_count <= 0:
+                streams_count = 1
+
+            config_path_in_container, log_dir_in_container = self.setup_config(log_dir, streams_count, instance_id)
             
             # DeepStream 실행 명령 구성
-            deepstream_cmd = ["/opt/nvidia/deepstream/deepstream-7.1/cityeyelab/vmnt/DeepStream-Yolo/custom_app_7.1/dist/deepstream-app", "-c", config_path] + additional_args
+            deepstream_cmd = [app_path_in_container, "-c", config_path_in_container]
             
             # Docker exec 명령 구성
             docker_cmd = [
                 "docker", "exec", "-d",  # -d는 detached 모드
-                "-e", f"APP_ID={instance_id}",  # 환경변수 설정
+                "-e", f"APP_ID={instance_id}",
+                "-e", f"DS_MAIN_CONFIG_FILE={config_path_in_container}",
+                "-e", f"DS_LOG_BASE_DIR={log_dir_in_container}",
                 docker_container
             ] + deepstream_cmd
             
@@ -154,7 +157,7 @@ class ProcessLauncher:
             # DeepStream 매니저에 인스턴스 등록
             if streams_count:
                 deepstream_manager.register_instance(
-                    instance_id, config_path, streams_count
+                    instance_id, log_dir, streams_count
                 )
             
             logger.info(f"DeepStream 앱 실행 성공: {instance_id} (Host PID: {proc.pid})")
@@ -171,9 +174,100 @@ class ProcessLauncher:
                 self.processes[process_info.process_id] = process_info
             
             return False, error_msg, None
-    
 
+    def setup_config(self, log_dir: str, streams_count: int, instance_id: str) -> str:
+        """
+        template.txt를 기반으로 새로운 config 파일을 생성
+        
+        Args:
+            log_dir: 로그 디렉토리 경로
+            streams_count: 스트림 개수
+            instance_id: 인스턴스 ID
+            
+        Returns:
+            생성된 config 파일의 경로
+        """
+        try:
+            # template 파일 경로
+            template_path = Path("ds_configs/template.txt")
+            primary_gie_config_path = Path("ds_configs/config_infer_primary_yoloV8.txt")
+            tracker_config_path = Path("ds_configs/config_tracker_NvSORT_custom.yml")
+            labelfile_path = Path("ds_configs/info_cls-7_bike.txt")
+
+            shutil.copy(primary_gie_config_path, log_dir)
+            shutil.copy(tracker_config_path, log_dir)
+            shutil.copy(labelfile_path, log_dir)
+
+            # template 파일 읽기
+            if not template_path.exists():
+                raise FileNotFoundError(f"Template 파일을 찾을 수 없습니다: {template_path}")
+            
+            with open(template_path, 'r', encoding='utf-8') as f:
+                template_content = f.read()
     
+            log_dir_in_container = log_dir.replace(
+                "/mnt/storage/admin_storage/deepstream_vmnt/", 
+                "/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/"
+            )
+
+            # 새 config 파일 경로 생성
+            config_filename = f"config_{instance_id}.txt"
+            config_path = Path(log_dir) / config_filename
+            config_path_in_container = str(Path(log_dir_in_container) / config_filename)
+
+            # template에서 [application] 섹션의 log-dir 수정
+            lines = template_content.split('\n')
+            modified_lines = []
+            
+            for line in lines:
+                if line.strip().startswith('log-dir='):
+                    modified_lines.append(f'log-dir={log_dir_in_container}')
+                else:
+                    modified_lines.append(line)
+            
+            # [source0] 섹션을 찾아서 streams_count만큼 복사
+            source0_section = []
+            in_source0_section = False
+            
+            for line in lines:
+                if line.strip() == '[source0]':
+                    in_source0_section = True
+                    source0_section.append(line)
+                elif in_source0_section and line.strip().startswith('['):
+                    # 다른 섹션이 시작되면 source0 섹션 끝
+                    break
+                elif in_source0_section:
+                    source0_section.append(line)
+            
+            # [source0]을 [source1], [source2], ... 로 복사
+            additional_sources = []
+            for i in range(1, streams_count):
+                source_section = []
+                for line in source0_section:
+                    if line.strip() == '[source0]':
+                        source_section.append(f'[source{i}]')
+                    else:
+                        source_section.append(line)
+                additional_sources.extend(source_section)
+                additional_sources.append('')  # 섹션 간 빈 줄 추가
+            
+            # 최종 config 내용 생성
+            final_content = '\n'.join(modified_lines)
+            if additional_sources:
+                final_content += '\n\n' + '\n'.join(additional_sources)
+            
+            # config 파일 저장
+            with open(config_path, 'w', encoding='utf-8') as f:
+                f.write(final_content)
+            
+            logger.info(f"Config 파일 생성 완료: {config_path} (streams: {streams_count})")
+            return config_path_in_container, log_dir_in_container
+            
+        except Exception as e:
+            error_msg = f"Config 파일 생성 실패: {str(e)}"
+            logger.error(error_msg)
+            raise Exception(error_msg)
+
     def get_process_info(self, process_id: str) -> Optional[ProcessInfo]:
         """프로세스 정보 조회"""
         return self.processes.get(process_id)

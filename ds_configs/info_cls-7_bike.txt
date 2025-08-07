@@ -1,0 +1,7 @@
+car
+bus_s
+bus_m
+truck_s
+truck_m
+truck_x
+bike

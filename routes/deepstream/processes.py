@@ -19,11 +19,9 @@ router = APIRouter(prefix="/processes", tags=["프로세스 관리"])
 async def launch_deepstream_app(request: LaunchRequest):
     """DeepStream 앱 실행"""
     success, message, process_info = await process_launcher.launch_deepstream_app(
-        config_path=request.config_path,
-        streams_count=request.streams_count,
         instance_id=request.instance_id,
-        docker_container=request.docker_container,
-        additional_args=request.additional_args
+        streams_count=request.streams_count,
+        log_dir=request.log_dir,
     )
     
     if success and process_info:
@@ -33,7 +31,7 @@ async def launch_deepstream_app(request: LaunchRequest):
             process_id=process_info.process_id,
             instance_id=process_info.instance_id,
             host_pid=process_info.host_pid,
-            log_path=process_info.log_path
+            log_dir=process_info.log_dir
         )
     else:
         # HTTP 500 대신 성공=False로 응답
@@ -59,7 +57,7 @@ async def get_all_processes():
         process_list.append(ProcessStatusInfo(
             process_id=process.process_id,
             instance_id=process.instance_id,
-            config_path=process.config_path,
+            config_path=process.log_dir,
             docker_container=process.docker_container,
             host_pid=process.host_pid,
             container_pid=process.container_pid,
@@ -92,7 +90,7 @@ async def get_process_status(process_id: str = FastAPIPath(..., description="프
     return ProcessStatusInfo(
         process_id=process.process_id,
         instance_id=process.instance_id,
-        config_path=process.config_path,
+        config_path=process.log_dir,
         docker_container=process.docker_container,
         host_pid=process.host_pid,
         container_pid=process.container_pid,
@@ -149,7 +147,7 @@ async def get_process_by_instance_id(instance_id: str = FastAPIPath(..., descrip
     return ProcessStatusInfo(
         process_id=process.process_id,
         instance_id=process.instance_id,
-        config_path=process.config_path,
+        config_path=process.log_dir,
         docker_container=process.docker_container,
         host_pid=process.host_pid,
         container_pid=process.container_pid,

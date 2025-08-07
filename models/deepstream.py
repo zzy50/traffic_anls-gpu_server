@@ -17,11 +17,9 @@ class AnalysisRequest(BaseModel):
 
 class LaunchRequest(BaseModel):
     """DeepStream 앱 실행 요청 모델"""
-    config_path: str
-    streams_count: Optional[int] = None
     instance_id: Optional[str] = None
-    docker_container: Optional[str] = None
-    additional_args: Optional[List[str]] = None
+    streams_count: Optional[int] = None
+    log_dir: str
 
 
 # 응답 모델들
@@ -42,7 +40,7 @@ class LaunchResponse(BaseModel):
     process_id: Optional[str] = None
     instance_id: Optional[str] = None
     host_pid: Optional[int] = None
-    log_path: Optional[str] = None
+    log_dir: Optional[str] = None
 
 
 class LogResponse(BaseModel):
