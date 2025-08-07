@@ -3,7 +3,6 @@ enable-perf-measurement=1
 perf-measurement-interval-sec=5
 gie-kitti-output-dir=infer
 kitti-track-output-dir=track
-log-dir=<runtime>
 queue-max-size=1000000
 
 [streammux]
@@ -39,8 +38,8 @@ display-tracking-id=1
 file-loop=0
 
 [source0]
-enable=1
-type=3
+enable=0
+type=2
 num-sources=1
 gpu-id=0
 cudadec-memtype=0

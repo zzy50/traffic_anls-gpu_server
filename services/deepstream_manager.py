@@ -49,7 +49,7 @@ class CameraInfo:
     """카메라 분석 정보"""
     camera_id: int
     stream_id: int
-    type: AnalysisType
+    camera_type: AnalysisType
     path: str
     name: str
     output_dir: str
@@ -166,7 +166,7 @@ class DeepStreamManager:
         camera_info = CameraInfo(
             camera_id=camera_id,
             stream_id=stream_id,
-            type=analysis_type,
+            camera_type=analysis_type,
             path=path,
             name=name,
             output_dir=output_dir,

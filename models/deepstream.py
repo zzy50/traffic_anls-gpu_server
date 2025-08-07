@@ -8,7 +8,7 @@ from models.websocket_messages import AnalysisType
 class AnalysisRequest(BaseModel):
     """분석 요청 모델"""
     camera_id: int
-    type: AnalysisType
+    camera_type: AnalysisType
     path: str
     name: str
     output_dir: str

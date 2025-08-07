@@ -7,7 +7,7 @@ from typing import Dict, List, Optional, Callable, Any
 from fastapi import WebSocket, WebSocketDisconnect
 
 from models.websocket_messages import (
-    MessageAction, MessageEvent, IncomingMessage, OutgoingMessage,
+    MessageType, IncomingMessage, OutgoingMessage,
     AppReadyMessage, ExecuteAckMessage, StartAnalysisMessage, AnalysisStartedMessage,
     PushFileMessage, PushAckMessage, ProcessingStartedMessage, FileDoneMessage,
     AnalysisCompleteMessage, InterruptAnalysisMessage, AnalysisInterruptedMessage,
@@ -62,16 +62,16 @@ class WebSocketManager:
     def _setup_message_handlers(self) -> Dict[str, Callable]:
         """메시지 핸들러 설정"""
         return {
-            MessageAction.APP_READY: self._handle_app_ready,
-            MessageEvent.ANALYSIS_STARTED: self._handle_analysis_started,
-            MessageEvent.PUSH_ACK: self._handle_push_ack,
-            MessageEvent.PROCESSING_STARTED: self._handle_processing_started,
-            MessageEvent.FILE_DONE: self._handle_file_done,
-            MessageEvent.ANALYSIS_COMPLETE: self._handle_analysis_complete,
-            MessageEvent.ANALYSIS_INTERRUPTED: self._handle_analysis_interrupted,
-            MessageEvent.APP_TERMINATED: self._handle_app_terminated,
-            MessageEvent.METRICS_RESPONSE: self._handle_metrics_response,
-            MessageEvent.ANALYSIS_STATUS: self._handle_analysis_status,
+            MessageType.APP_READY: self._handle_app_ready,
+            MessageType.ANALYSIS_STARTED: self._handle_analysis_started,
+            MessageType.PUSH_ACK: self._handle_push_ack,
+            MessageType.PROCESSING_STARTED: self._handle_processing_started,
+            MessageType.FILE_DONE: self._handle_file_done,
+            MessageType.ANALYSIS_COMPLETE: self._handle_analysis_complete,
+            MessageType.ANALYSIS_INTERRUPTED: self._handle_analysis_interrupted,
+            MessageType.APP_TERMINATED: self._handle_app_terminated,
+            MessageType.METRICS_RESPONSE: self._handle_metrics_response,
+            MessageType.ANALYSIS_STATUS: self._handle_analysis_status,
         }
     
     async def connect(self, websocket: WebSocket) -> str:
@@ -120,7 +120,7 @@ class WebSocketManager:
         """수신된 메시지 처리"""
         try:
             message_data = json.loads(message_text)
-            message_type = message_data.get("action") or message_data.get("event")
+            message_type = message_data.get("type")
             
             if not message_type:
                 logger.warning(f"메시지 타입 없음: {message_text[:100]}")
@@ -383,7 +383,7 @@ class WebSocketManager:
                 request_id=str(uuid.uuid4()),
                 stream_id=stream_id,
                 camera_id=camera_id,
-                type=analysis_type,
+                camera_type=analysis_type,
                 path=path,
                 name=name,
                 output_dir=output_dir

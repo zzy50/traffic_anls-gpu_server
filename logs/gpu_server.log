@@ -203,3 +203,346 @@
 2025-08-07 10:24:01.437 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
 2025-08-07 10:24:01.437 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 2509361)
 2025-08-07 10:24:01.439 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 12:52:49.934 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/config_test_id.txt (streams: 5)
+2025-08-07 12:52:49.935 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-07 12:52:49.970 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-07 12:52:49.970 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 2801105)
+2025-08-07 12:52:49.972 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 13:03:42.010 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/config_test_id.txt (streams: 5)
+2025-08-07 13:03:42.011 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-07 13:03:42.014 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-07 13:03:42.014 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 2813774)
+2025-08-07 13:03:42.016 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 13:04:07.523 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/config_test_id.txt (streams: 5)
+2025-08-07 13:04:07.523 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-07 13:04:07.527 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-07 13:04:07.527 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 2814172)
+2025-08-07 13:04:07.529 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 13:08:52.174 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/config_test_id.txt (streams: 5)
+2025-08-07 13:08:52.174 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-07 13:08:52.178 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-07 13:08:52.178 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 2818733)
+2025-08-07 13:08:52.180 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 13:09:18.532 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/config_test_id.txt (streams: 5)
+2025-08-07 13:09:18.533 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-07 13:09:18.536 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-07 13:09:18.536 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 2819718)
+2025-08-07 13:09:18.538 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 15:16:37.274 - Shutting down
+2025-08-07 15:16:37.375 - Waiting for application shutdown.
+2025-08-07 15:16:37.376 - root - INFO - Stopping application...
+2025-08-07 15:16:37.377 - Application shutdown complete.
+2025-08-07 15:16:37.379 - Finished server process [1246756]
+2025-08-07 15:16:37.944 - Started server process [2961923]
+2025-08-07 15:16:37.944 - Waiting for application startup.
+2025-08-07 15:16:37.945 - root - INFO - Starting application...
+2025-08-07 15:16:37.947 - Application startup complete.
+2025-08-07 15:16:37.949 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-07 15:50:59.905 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-07 15:51:00.046 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
+2025-08-07 15:51:27.791 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_test_id.txt (streams: 5)
+2025-08-07 15:51:27.791 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-07 15:51:27.795 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-07 15:51:27.795 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 3010997)
+2025-08-07 15:51:27.797 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 15:51:28.388 - Unsupported upgrade request.
+2025-08-07 15:51:28.388 - No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+2025-08-07 15:51:28.391 - 192.168.100.3:33634 - "GET /ws HTTP/1.1" 404
+2025-08-07 15:51:33.394 - Unsupported upgrade request.
+2025-08-07 15:51:33.395 - No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+2025-08-07 15:51:33.398 - 192.168.100.3:46958 - "GET /ws HTTP/1.1" 404
+2025-08-07 15:51:38.401 - Unsupported upgrade request.
+2025-08-07 15:51:38.401 - No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+2025-08-07 15:51:38.404 - 192.168.100.3:46964 - "GET /ws HTTP/1.1" 404
+2025-08-07 15:51:43.407 - Unsupported upgrade request.
+2025-08-07 15:51:43.408 - No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+2025-08-07 15:51:43.411 - 192.168.100.3:40560 - "GET /ws HTTP/1.1" 404
+2025-08-07 15:51:48.414 - Unsupported upgrade request.
+2025-08-07 15:51:48.414 - No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+2025-08-07 15:51:48.417 - 192.168.100.3:40562 - "GET /ws HTTP/1.1" 404
+2025-08-07 15:51:53.420 - Unsupported upgrade request.
+2025-08-07 15:51:53.420 - No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+2025-08-07 15:51:53.423 - 192.168.100.3:45866 - "GET /ws HTTP/1.1" 404
+2025-08-07 15:51:58.426 - Unsupported upgrade request.
+2025-08-07 15:51:58.427 - No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+2025-08-07 15:51:58.430 - 192.168.100.3:45876 - "GET /ws HTTP/1.1" 404
+2025-08-07 15:52:03.433 - Unsupported upgrade request.
+2025-08-07 15:52:03.434 - No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+2025-08-07 15:52:03.437 - 192.168.100.3:40928 - "GET /ws HTTP/1.1" 404
+2025-08-07 15:52:08.440 - Unsupported upgrade request.
+2025-08-07 15:52:08.440 - No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+2025-08-07 15:52:08.443 - 192.168.100.3:40944 - "GET /ws HTTP/1.1" 404
+2025-08-07 15:52:13.446 - Unsupported upgrade request.
+2025-08-07 15:52:13.447 - No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+2025-08-07 15:52:13.450 - 192.168.100.3:46606 - "GET /ws HTTP/1.1" 404
+2025-08-07 15:52:28.614 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_test_id.txt (streams: 5)
+2025-08-07 15:52:28.614 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-07 15:52:28.617 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-07 15:52:28.617 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 3012520)
+2025-08-07 15:52:28.619 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 15:54:38.980 - Shutting down
+2025-08-07 15:54:39.081 - Waiting for application shutdown.
+2025-08-07 15:54:39.082 - root - INFO - Stopping application...
+2025-08-07 15:54:39.084 - Application shutdown complete.
+2025-08-07 15:54:39.086 - Finished server process [2961923]
+2025-08-07 15:54:39.636 - Started server process [3015390]
+2025-08-07 15:54:39.636 - Waiting for application startup.
+2025-08-07 15:54:39.638 - root - INFO - Starting application...
+2025-08-07 15:54:39.640 - Application startup complete.
+2025-08-07 15:54:39.644 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-07 15:55:34.990 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_test_id.txt (streams: 5)
+2025-08-07 15:55:34.990 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-07 15:55:34.993 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-07 15:55:34.993 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 3016580)
+2025-08-07 15:55:34.998 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 15:55:35.640 - 192.168.100.3:40128 - "WebSocket /ws" 403
+2025-08-07 15:55:35.641 - connection rejected (403 Forbidden)
+2025-08-07 15:55:35.644 - connection closed
+2025-08-07 15:55:40.646 - 192.168.100.3:40136 - "WebSocket /ws" 403
+2025-08-07 15:55:40.649 - connection rejected (403 Forbidden)
+2025-08-07 15:55:40.651 - connection closed
+2025-08-07 15:55:45.654 - 192.168.100.3:60302 - "WebSocket /ws" 403
+2025-08-07 15:55:45.655 - connection rejected (403 Forbidden)
+2025-08-07 15:55:45.658 - connection closed
+2025-08-07 15:55:50.661 - 192.168.100.3:60316 - "WebSocket /ws" 403
+2025-08-07 15:55:50.662 - connection rejected (403 Forbidden)
+2025-08-07 15:55:50.664 - connection closed
+2025-08-07 15:55:55.667 - 192.168.100.3:40798 - "WebSocket /ws" 403
+2025-08-07 15:55:55.668 - connection rejected (403 Forbidden)
+2025-08-07 15:55:55.670 - connection closed
+2025-08-07 15:56:00.674 - 192.168.100.3:40814 - "WebSocket /ws" 403
+2025-08-07 15:56:00.674 - connection rejected (403 Forbidden)
+2025-08-07 15:56:00.677 - connection closed
+2025-08-07 15:56:05.681 - 192.168.100.3:47902 - "WebSocket /ws" 403
+2025-08-07 15:56:05.682 - connection rejected (403 Forbidden)
+2025-08-07 15:56:05.684 - connection closed
+2025-08-07 15:56:10.687 - 192.168.100.3:47912 - "WebSocket /ws" 403
+2025-08-07 15:56:10.688 - connection rejected (403 Forbidden)
+2025-08-07 15:56:10.690 - connection closed
+2025-08-07 15:56:15.693 - 192.168.100.3:48762 - "WebSocket /ws" 403
+2025-08-07 15:56:15.694 - connection rejected (403 Forbidden)
+2025-08-07 15:56:15.696 - connection closed
+2025-08-07 15:56:20.699 - 192.168.100.3:48776 - "WebSocket /ws" 403
+2025-08-07 15:56:20.700 - connection rejected (403 Forbidden)
+2025-08-07 15:56:20.703 - connection closed
+2025-08-07 15:58:59.359 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_test_id.txt (streams: 5)
+2025-08-07 15:58:59.360 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-07 15:58:59.363 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-07 15:58:59.363 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 3021940)
+2025-08-07 15:58:59.365 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 15:58:59.966 - 192.168.100.3:50268 - "WebSocket /ws" 403
+2025-08-07 15:58:59.966 - connection rejected (403 Forbidden)
+2025-08-07 15:58:59.969 - connection closed
+2025-08-07 15:59:04.986 - 192.168.100.3:55752 - "WebSocket /ws" 403
+2025-08-07 15:59:04.989 - connection rejected (403 Forbidden)
+2025-08-07 15:59:04.991 - connection closed
+2025-08-07 15:59:09.995 - 192.168.100.3:55766 - "WebSocket /ws" 403
+2025-08-07 15:59:09.996 - connection rejected (403 Forbidden)
+2025-08-07 15:59:09.998 - connection closed
+2025-08-07 15:59:15.001 - 192.168.100.3:55094 - "WebSocket /ws" 403
+2025-08-07 15:59:15.001 - connection rejected (403 Forbidden)
+2025-08-07 15:59:15.004 - connection closed
+2025-08-07 15:59:20.008 - 192.168.100.3:55108 - "WebSocket /ws" 403
+2025-08-07 15:59:20.008 - connection rejected (403 Forbidden)
+2025-08-07 15:59:20.011 - connection closed
+2025-08-07 15:59:25.013 - 192.168.100.3:43888 - "WebSocket /ws" 403
+2025-08-07 15:59:25.014 - connection rejected (403 Forbidden)
+2025-08-07 15:59:25.017 - connection closed
+2025-08-07 15:59:30.019 - 192.168.100.3:43892 - "WebSocket /ws" 403
+2025-08-07 15:59:30.020 - connection rejected (403 Forbidden)
+2025-08-07 15:59:30.023 - connection closed
+2025-08-07 15:59:35.025 - 192.168.100.3:33886 - "WebSocket /ws" 403
+2025-08-07 15:59:35.026 - connection rejected (403 Forbidden)
+2025-08-07 15:59:35.028 - connection closed
+2025-08-07 15:59:40.031 - 192.168.100.3:33902 - "WebSocket /ws" 403
+2025-08-07 15:59:40.032 - connection rejected (403 Forbidden)
+2025-08-07 15:59:40.034 - connection closed
+2025-08-07 15:59:45.037 - 192.168.100.3:54790 - "WebSocket /ws" 403
+2025-08-07 15:59:45.038 - connection rejected (403 Forbidden)
+2025-08-07 15:59:45.041 - connection closed
+2025-08-07 16:57:31.903 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_test_id.txt (streams: 5)
+2025-08-07 16:57:31.904 - services.process_launcher - INFO - DeepStream 앱 실행 시작: test_id
+2025-08-07 16:57:31.931 - services.deepstream_manager - INFO - 새 인스턴스 등록: test_id
+2025-08-07 16:57:31.931 - services.process_launcher - INFO - DeepStream 앱 실행 성공: test_id (Host PID: 3093840)
+2025-08-07 16:57:31.934 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 16:58:42.281 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-07 16:58:42.282 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-07 16:58:42.285 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-07 16:58:42.286 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 3095389)
+2025-08-07 16:58:42.288 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 17:03:17.531 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-07 17:03:17.532 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-07 17:03:17.535 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-07 17:03:17.536 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 3101110)
+2025-08-07 17:03:17.538 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 17:03:18.151 - 192.168.100.3:43666 - "WebSocket /ws" 403
+2025-08-07 17:03:18.153 - connection rejected (403 Forbidden)
+2025-08-07 17:03:18.155 - connection closed
+2025-08-07 17:03:23.157 - 192.168.100.3:50510 - "WebSocket /ws" 403
+2025-08-07 17:03:23.157 - connection rejected (403 Forbidden)
+2025-08-07 17:03:23.160 - connection closed
+2025-08-07 17:03:28.162 - 192.168.100.3:50512 - "WebSocket /ws" 403
+2025-08-07 17:03:28.163 - connection rejected (403 Forbidden)
+2025-08-07 17:03:28.165 - connection closed
+2025-08-07 17:03:33.169 - 192.168.100.3:58744 - "WebSocket /ws" 403
+2025-08-07 17:03:33.170 - connection rejected (403 Forbidden)
+2025-08-07 17:03:33.172 - connection closed
+2025-08-07 17:03:38.175 - 192.168.100.3:58758 - "WebSocket /ws" 403
+2025-08-07 17:03:38.176 - connection rejected (403 Forbidden)
+2025-08-07 17:03:38.179 - connection closed
+2025-08-07 17:03:43.181 - 192.168.100.3:45302 - "WebSocket /ws" 403
+2025-08-07 17:03:43.182 - connection rejected (403 Forbidden)
+2025-08-07 17:03:43.184 - connection closed
+2025-08-07 17:03:48.187 - 192.168.100.3:45304 - "WebSocket /ws" 403
+2025-08-07 17:03:48.188 - connection rejected (403 Forbidden)
+2025-08-07 17:03:48.190 - connection closed
+2025-08-07 17:03:53.193 - 192.168.100.3:53312 - "WebSocket /ws" 403
+2025-08-07 17:03:53.194 - connection rejected (403 Forbidden)
+2025-08-07 17:03:53.197 - connection closed
+2025-08-07 17:03:58.199 - 192.168.100.3:53322 - "WebSocket /ws" 403
+2025-08-07 17:03:58.200 - connection rejected (403 Forbidden)
+2025-08-07 17:03:58.203 - connection closed
+2025-08-07 17:04:03.206 - 192.168.100.3:41896 - "WebSocket /ws" 403
+2025-08-07 17:04:03.206 - connection rejected (403 Forbidden)
+2025-08-07 17:04:03.209 - connection closed
+2025-08-07 17:04:08.212 - 192.168.100.3:41898 - "WebSocket /ws" 403
+2025-08-07 17:04:08.213 - connection rejected (403 Forbidden)
+2025-08-07 17:04:08.215 - connection closed
+2025-08-07 17:04:13.218 - 192.168.100.3:38798 - "WebSocket /ws" 403
+2025-08-07 17:04:13.219 - connection rejected (403 Forbidden)
+2025-08-07 17:04:13.221 - connection closed
+2025-08-07 17:04:18.224 - 192.168.100.3:38810 - "WebSocket /ws" 403
+2025-08-07 17:04:18.225 - connection rejected (403 Forbidden)
+2025-08-07 17:04:18.227 - connection closed
+2025-08-07 17:13:59.697 - Shutting down
+2025-08-07 17:13:59.798 - Waiting for application shutdown.
+2025-08-07 17:13:59.799 - root - INFO - Stopping application...
+2025-08-07 17:13:59.801 - Application shutdown complete.
+2025-08-07 17:13:59.802 - Finished server process [3015390]
+2025-08-07 17:14:00.370 - Started server process [3115632]
+2025-08-07 17:14:00.370 - Waiting for application startup.
+2025-08-07 17:14:00.372 - root - INFO - Starting application...
+2025-08-07 17:14:00.374 - Application startup complete.
+2025-08-07 17:14:00.378 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-07 17:14:14.526 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-07 17:14:14.526 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-07 17:14:14.530 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-07 17:14:14.530 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 3116134)
+2025-08-07 17:14:14.532 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 17:14:15.148 - 192.168.100.3:59234 - "WebSocket /ws" 403
+2025-08-07 17:14:15.148 - connection rejected (403 Forbidden)
+2025-08-07 17:14:15.151 - connection closed
+2025-08-07 17:14:20.154 - 192.168.100.3:59240 - "WebSocket /ws" 403
+2025-08-07 17:14:20.154 - connection rejected (403 Forbidden)
+2025-08-07 17:14:20.157 - connection closed
+2025-08-07 17:14:25.159 - 192.168.100.3:48806 - "WebSocket /ws" 403
+2025-08-07 17:14:25.160 - connection rejected (403 Forbidden)
+2025-08-07 17:14:25.163 - connection closed
+2025-08-07 17:14:30.166 - 192.168.100.3:48822 - "WebSocket /ws" 403
+2025-08-07 17:14:30.167 - connection rejected (403 Forbidden)
+2025-08-07 17:14:30.170 - connection closed
+2025-08-07 17:16:29.140 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-07 17:16:29.140 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-07 17:16:29.143 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-07 17:16:29.143 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 3119008)
+2025-08-07 17:16:29.145 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 17:16:29.773 - 192.168.100.3:36296 - "WebSocket /ws" 403
+2025-08-07 17:16:29.774 - connection rejected (403 Forbidden)
+2025-08-07 17:16:29.777 - connection closed
+2025-08-07 17:16:34.780 - 192.168.100.3:35648 - "WebSocket /ws" 403
+2025-08-07 17:16:34.780 - connection rejected (403 Forbidden)
+2025-08-07 17:16:34.783 - connection closed
+2025-08-07 17:16:39.786 - 192.168.100.3:35650 - "WebSocket /ws" 403
+2025-08-07 17:16:39.787 - connection rejected (403 Forbidden)
+2025-08-07 17:16:39.789 - connection closed
+2025-08-07 17:16:44.792 - 192.168.100.3:59398 - "WebSocket /ws" 403
+2025-08-07 17:16:44.793 - connection rejected (403 Forbidden)
+2025-08-07 17:16:44.796 - connection closed
+2025-08-07 17:16:49.798 - 192.168.100.3:59412 - "WebSocket /ws" 403
+2025-08-07 17:16:49.798 - connection rejected (403 Forbidden)
+2025-08-07 17:16:49.802 - connection closed
+2025-08-07 17:16:54.804 - 192.168.100.3:58146 - "WebSocket /ws" 403
+2025-08-07 17:16:54.805 - connection rejected (403 Forbidden)
+2025-08-07 17:16:54.807 - connection closed
+2025-08-07 17:17:38.877 - Shutting down
+2025-08-07 17:17:38.978 - Waiting for application shutdown.
+2025-08-07 17:17:38.978 - root - INFO - Stopping application...
+2025-08-07 17:17:38.980 - Application shutdown complete.
+2025-08-07 17:17:38.982 - Finished server process [3115632]
+2025-08-07 17:17:39.536 - Started server process [3121095]
+2025-08-07 17:17:39.536 - Waiting for application startup.
+2025-08-07 17:17:39.537 - root - INFO - Starting application...
+2025-08-07 17:17:39.539 - Application startup complete.
+2025-08-07 17:17:39.544 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-07 17:17:41.608 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-07 17:17:41.609 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-07 17:17:41.612 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-07 17:17:41.613 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 3121253)
+2025-08-07 17:17:41.615 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 17:18:21.021 - 192.168.100.3:42780 - "GET /health HTTP/1.1" 200
+2025-08-07 17:22:57.261 - Shutting down
+2025-08-07 17:22:57.362 - Waiting for application shutdown.
+2025-08-07 17:22:57.362 - root - INFO - Stopping application...
+2025-08-07 17:22:57.365 - Application shutdown complete.
+2025-08-07 17:22:57.366 - Finished server process [3121095]
+2025-08-07 17:22:57.892 - Started server process [3128028]
+2025-08-07 17:22:57.892 - Waiting for application startup.
+2025-08-07 17:22:57.898 - root - INFO - Starting application...
+2025-08-07 17:22:57.899 - Application startup complete.
+2025-08-07 17:22:57.902 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-07 17:23:28.340 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-07 17:23:28.341 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-07 17:23:28.343 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-07 17:23:28.344 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 3129019)
+2025-08-07 17:23:28.345 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 17:25:36.345 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-07 17:25:36.345 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-07 17:25:36.349 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-07 17:25:36.349 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 3131887)
+2025-08-07 17:25:36.351 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 17:26:00.165 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-07 17:26:00.344 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
+2025-08-07 17:27:27.571 - 192.168.100.3:36600 - "GET /deepstream/ws HTTP/1.1" 404
+2025-08-07 17:28:46.553 - 192.168.100.3:57884 - "GET /deepstream/health HTTP/1.1" 200
+2025-08-07 17:28:56.195 - Shutting down
+2025-08-07 17:28:56.297 - Waiting for application shutdown.
+2025-08-07 17:28:56.298 - root - INFO - Stopping application...
+2025-08-07 17:28:56.300 - Application shutdown complete.
+2025-08-07 17:28:56.302 - Finished server process [3128028]
+2025-08-07 17:28:56.849 - Started server process [3137234]
+2025-08-07 17:28:56.849 - Waiting for application startup.
+2025-08-07 17:28:56.851 - root - INFO - Starting application...
+2025-08-07 17:28:56.853 - Application startup complete.
+2025-08-07 17:28:56.857 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-07 17:28:58.289 - 192.168.100.3:55034 - "GET /deepstream/health HTTP/1.1" 200
+2025-08-07 17:29:16.588 - 192.168.100.3:56946 - "GET /deepstream/health HTTP/1.1" 200
+2025-08-07 17:29:29.153 - 192.168.100.3:42708 - "GET /deepstream/health HTTP/1.1" 200
+2025-08-07 17:36:12.124 - Shutting down
+2025-08-07 17:36:12.226 - Waiting for application shutdown.
+2025-08-07 17:36:12.227 - root - INFO - Stopping application...
+2025-08-07 17:36:12.229 - Application shutdown complete.
+2025-08-07 17:36:12.231 - Finished server process [3137234]
+2025-08-07 17:36:12.790 - Started server process [3147519]
+2025-08-07 17:36:12.791 - Waiting for application startup.
+2025-08-07 17:36:12.792 - root - INFO - Starting application...
+2025-08-07 17:36:12.794 - Application startup complete.
+2025-08-07 17:36:12.799 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-07 17:36:46.383 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-07 17:36:46.383 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-07 17:36:46.386 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-07 17:36:46.387 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 3148478)
+2025-08-07 17:36:46.389 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 17:36:46.985 - 192.168.100.3:45404 - "WebSocket /deepstream/ws" [accepted]
+2025-08-07 17:36:46.986 - services.websocket_manager - INFO - 새 WebSocket 연결: ed07b64a-efb3-4d7d-9a33-20e69af013f3
+2025-08-07 17:36:46.988 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: ed07b64a-efb3-4d7d-9a33-20e69af013f3
+2025-08-07 17:36:46.991 - connection open
+2025-08-07 17:36:46.993 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 1622529
+2025-08-07 17:36:46.993 - services.websocket_manager - ERROR - Streams count 불일치 - 예상: 5, 실제: 0
+2025-08-07 17:36:46.995 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-07 17:36:46.997 - services.websocket_manager - WARNING - 알 수 없는 메시지 타입: error
+2025-08-07 17:37:33.062 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-07 17:37:33.063 - services.websocket_manager - INFO - 클라이언트 연결 종료: ed07b64a-efb3-4d7d-9a33-20e69af013f3
+2025-08-07 17:37:33.065 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-07 17:37:33.067 - services.websocket_manager - INFO - WebSocket 연결 해제: ed07b64a-efb3-4d7d-9a33-20e69af013f3
+2025-08-07 17:37:33.069 - services.websocket_manager - INFO - WebSocket 연결 해제: ed07b64a-efb3-4d7d-9a33-20e69af013f3
+2025-08-07 17:37:33.071 - connection closed

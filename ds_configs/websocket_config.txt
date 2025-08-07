@@ -1,0 +1,28 @@
+[websocket]
+server_address=172.17.0.1
+server_port=18000
+server_path=/deepstream/ws
+protocol_name=deepstream-protocol
+
+enable_ssl=false
+auto_reconnect=true
+
+# Maximum reconnection attempts
+max_reconnect_attempts=-1
+reconnect_interval_sec=5
+connection_timeout_sec=10
+
+# Message handling
+max_message_size_kb=64
+send_buffer_size=4096
+receive_buffer_size=4096
+heartbeat_interval_sec=30
+
+# Performance settings
+max_pending_messages=100
+compress_messages=false
+worker_thread_count=0
+
+# Debugging and logging
+enable_debug_output=false
+log_message_content=false

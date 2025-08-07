@@ -1,8 +1,14 @@
+# ds analysis 정리본
+
+<br>
+
+# <br>
+
 # DeepStream-Yolo Custom App 7.1 구조 및 WebSocket 통합 방안
 
 <br>
 
-# 1. 현재 코드 상황
+# 1\. 현재 코드 상황
 
 ## 1.1. DeepStream 앱 주요 구조와 스트림 분석 요청 처리 방식
 
@@ -28,7 +34,7 @@ DeepStream-Yolo의 커스텀 앱(버전 7.1)은 NVIDIA DeepStream의 `deepstream
 
 <br>
 
-# 2. 수정 요구사항
+# 2\. 수정 요구사항
 
 <br>
 
@@ -67,10 +73,10 @@ FastAPI 및 Deepstream 컨테이너는 하나의 시스템 내에서 동작함.
     - 분석 중 발생한 이벤트 및 로그를 FastAPI에 **실시간으로 전송**
     - logging관련
         - log 파일은 1개당 2MB 제한을 가지며, rotation은 최대 10개까지.
-        - deepstream-app 인스턴스는 각자만의 log가 담길 폴더를 가지며, 그 경로는 다음과 같음.  
+        - deepstream-app 인스턴스는 각자만의 log가 담길 폴더를 가지며, 그 경로는 다음과 같음.
 
 ```
-/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/DeepStream-Yolo/logs/instid_<instance_id>-pid_<process-id>-date_<프로세스 실행 시각(%y%m%d_%H%M%S)>/instid_<instance_id>-pid_<process-id>-date_<프로세스 실행 시각(%y%m%d_%H%M%S)>.log (or .log.1, .log.2, ...etc)
+/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/DeepStream-Yolo/logs/instid_<instance_id>-pid_<process-id>-date_<현재시각(%y%m%d_%H%M%S)>/instid_<instance_id>-pid_<process-id>-date_<프로세스 실행 시각(%y%m%d_%H%M%S)>.log (or .log.1, .log.2, ...etc)
 ```
 
 <br>
@@ -219,10 +225,11 @@ docker exec deepstream_container pkill -f "APP_ID=stream_alpha"
 
 ```
 {
-  "action": "app_ready",
+  "type": "app_ready",
   "request_id": "<UUID>",
   "instance_id" "<instance id>": 
   "config_path": "<config path>"
+  "process_id": <PID>,
   "streams_count": 3,
   "status": "ok",
   "version": "DeepStream-Yolo v7.1",
@@ -241,7 +248,7 @@ docker exec deepstream_container pkill -f "APP_ID=stream_alpha"
 
 ```
 {
-  "event": "execute_ack",
+  "type": "execute_ack",
   "request_id": "<UUID>",
   "instance_id": "<instance id>",
   "config_verified": true,
@@ -255,7 +262,7 @@ docker exec deepstream_container pkill -f "APP_ID=stream_alpha"
 
 ```
 {
-  "event": "execute_ack",
+  "type": "execute_ack",
   "request_id": "<UUID>",
   "status": "error",
   "config_verified": false,
@@ -288,25 +295,25 @@ docker exec deepstream_container pkill -f "APP_ID=stream_alpha"
 
 ```
 {
-  "action": "start_analysis",
+  "type": "start_analysis",
   "request_id": "<UUID>",
   "stream_id": <정수>,
   "camera_id": <정수>,
-  "type": <"stream", "folder", "file">,
+  "camera_type": <"videostream", "fileset", "file">,
   "path": "<분석 대상 폴더/파일 경로>",
   "name": "<대상 이름>",
   "output_dir": "<결과 출력 폴더 경로>"
 }
 ```
 
-주요 필드 설명: `stream_id`는 사용하려는 스트림 슬롯, `camera_id`는 해당 작업의 고유 ID, `type`은 폴더 vs 파일 단위(추후 rtsp, http 등 video stream도 추가 예정), `path`와 `name`은 분석 대상 위치 정보, `output_dir`는 DeepStream이 결과를 저장할 경로입니다. 이 메시지를 받으면 DeepStream은 해당 정보를 토대로 **새로운 파이프라인 실행 준비**를 합니다.
+주요 필드 설명: `stream_id`는 사용하려는 스트림 슬롯, `camera_id`는 해당 작업의 고유 ID, `camera_type`은 폴더 vs 파일 단위(추후 rtsp, http 등 video stream도 추가 예정), `path`와 `name`은 분석 대상 위치 정보, `output_dir`는 DeepStream이 결과를 저장할 경로입니다. 이 메시지를 받으면 DeepStream은 해당 정보를 토대로 **새로운 파이프라인 실행 준비**를 하고, 
 - **DeepStream -> FastAPI 보내는 메시지 필드:**  
 DeepStream은 `start_analysis` 메시지에 대해 **아래와 같은 응답**을 FastAPI로 전송합니다.
     - 성공 시:
 
 ```
 {
-  "event": "analysis_started",
+  "type": "analysis_started",
   "request_id": "<UUID>",
   "stream_id": X,
   "camera_id": Y,
@@ -320,7 +327,7 @@ DeepStream은 `start_analysis` 메시지에 대해 **아래와 같은 응답**�
 
 ```
 {
-  "event": "analysis_started",
+  "type": "analysis_started",
   "request_id": "<UUID>",
   "stream_id": X,
   "camera_id": Y,
@@ -339,7 +346,7 @@ DeepStream은 `start_analysis` 메시지에 대해 **아래와 같은 응답**�
 
 ```
 {
-  "action": "push_file",
+  "type": "push_file",
   "request_id": "<UUID>",
   "stream_id": X,
   "camera_id": Y,
@@ -374,7 +381,7 @@ DeepStream은 파일 경로들을 수신하면 즉시 응답을 보내기보다�
 
 ```
 {
-  "event": "push_ack",
+  "type": "push_ack",
   "request_id": "<UUID>",
   "stream_id": X,
   "camera_id": Y,
@@ -388,7 +395,7 @@ FastAPI는 이를 받아 잘못된 요청을 로그로 남기거나 오류 처�
 
 ```
 { 
-  "event": "processing_started", 
+  "type": "processing_started", 
   "request_id": "<UUID>",
   "stream_id": X,
   "camera_id": Y,
@@ -401,7 +408,7 @@ FastAPI는 이를 받아 잘못된 요청을 로그로 남기거나 오류 처�
 
 ```
 { 
-  "event": "file_done",
+  "type": "file_done",
   "request_id": "<UUID>",
   "stream_id": X,
   "camera_id": Y,
@@ -415,7 +422,7 @@ FastAPI는 이를 받아 잘못된 요청을 로그로 남기거나 오류 처�
 
 ```
 {
-  "event": "analysis_complete",
+  "type": "analysis_complete",
   "request_id": "<UUID>",
   "stream_id": X,
   "camera_id": Y,
@@ -437,7 +444,7 @@ FastAPI는 이 메시지를 받으면 결과 파일들을 `output_dir`에서 수
 
 ```
 {
-  "action": "interrupt_analysis",
+  "type": "interrupt_analysis",
   "request_id": "<UUID>",
   "stream_id": X,
   "camera_id": Y,
@@ -452,7 +459,7 @@ DeepStream은 `interrupt` 요청을 받으면 상황에 따라 두 가지 응답
 
 ```
 {
-  "event": "analysis_interrupted",
+  "type": "analysis_interrupted",
   "request_id": "<UUID>",
   "stream_id": X,
   "camera_id": Y,
@@ -466,7 +473,7 @@ DeepStream은 `interrupt` 요청을 받으면 상황에 따라 두 가지 응답
 
 ```
 {
-  "event": "analysis_interrupted",
+  "type": "analysis_interrupted",
   "request_id": "<UUID>",
   "stream_id": X,
   "camera_id": Y,
@@ -500,7 +507,7 @@ DeepStream은 **종료 절차 완료 직전**에 다음과 같은 메시지를 �
 
 ```
 {
-  "event": "app_terminated",
+  "type": "app_terminated",
   "request_id": "<UUID>",
   "status": "ok",
   "message": "DeepStream process exiting."
@@ -557,7 +564,7 @@ DeepStream은 **종료 절차 완료 직전**에 다음과 같은 메시지를 �
 
 ```
 {
-  "action": "query_analysis_status",  // 모든 stream·camera 상태 조회
+  "type": "query_analysis_status",  // 모든 stream·camera 상태 조회
   "request_id": "<UUID>"              // 응답 매칭용 고유 ID
 }
 ```
@@ -566,7 +573,7 @@ DeepStream은 **종료 절차 완료 직전**에 다음과 같은 메시지를 �
 
 ```
 { 
-  "event": "analysis_status",        // 상태 응답임을 명시
+  "type": "analysis_status",        // 상태 응답임을 명시
   "request_id": "<UUID>",            // 요청 시전된 ID와 동일
   "timestamp": "<ISO8601>",          // 응답 생성 시각
   "streams": [
@@ -602,7 +609,7 @@ DeepStream은 **종료 절차 완료 직전**에 다음과 같은 메시지를 �
 
 ```
 {
-  "action": "query_analysis_status",  
+  "type": "query_analysis_status",  
   "request_id": "<UUID>",
   "stream_id": <int>                  // 특정 스트림 슬롯만 조회
 }
@@ -614,7 +621,7 @@ DeepStream은 **종료 절차 완료 직전**에 다음과 같은 메시지를 �
 
 ```
 {
-  "event": "analysis_status",
+  "type": "analysis_status",
   "request_id": "<UUID>",
   "timestamp": "<ISO8601>",
   "stream": {
@@ -644,7 +651,7 @@ DeepStream은 **종료 절차 완료 직전**에 다음과 같은 메시지를 �
 
 ```
 {
-  "action": "query_analysis_status",
+  "type": "query_analysis_status",
   "request_id": "<UUID>",
   "stream_id": <int>,                 // 해당 카메라가 속한 스트림
   "camera_id": <int>                  // 특정 카메라만 조회
@@ -657,7 +664,7 @@ DeepStream은 **종료 절차 완료 직전**에 다음과 같은 메시지를 �
 
 ```
 {
-  "event": "analysis_status",
+  "type": "analysis_status",
   "request_id": "<UUID>",
   "timestamp": "<ISO8601>",
   "stream_id": <int>,

@@ -1,0 +1,31 @@
+# DeepStream Logging Configuration Example
+# This file demonstrates all available logging configuration options
+
+[logging]
+# Log filename template - controls the log file naming format
+# Available placeholders: %s (instance_id), %d (process_id), %s (timestamp)
+filename_template=instid_%s-pid_%d-date_%s
+
+# Maximum log file size in MB before rotation
+max_file_size_mb=8
+
+# Maximum number of log files to keep
+max_files=10
+
+# Log level: ERROR, WARN, INFO, DEBUG, TRACE
+level=INFO
+
+# Enable console output (true/false)
+console_output=false
+
+# Enable file output (true/false)
+file_output=true
+
+# Show timestamp in log messages (true/false)
+show_timestamp=true
+
+# Show log level in log messages (true/false)
+show_level=true
+
+# Show instance ID in log messages (true/false)
+show_instance_id=true

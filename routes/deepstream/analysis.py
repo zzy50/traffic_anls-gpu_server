@@ -40,7 +40,7 @@ async def start_analysis(request: AnalysisRequest):
         available_instance.instance_id,
         available_stream,
         request.camera_id,
-        request.type,
+        request.camera_type,
         request.path,
         request.name,
         request.output_dir
@@ -65,7 +65,7 @@ async def start_analysis(request: AnalysisRequest):
         available_instance.instance_id,
         available_stream,
         request.camera_id,
-        request.type.value,
+        request.camera_type.value,
         request.path,
         request.name,
         request.output_dir

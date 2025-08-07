@@ -81,7 +81,7 @@ if __name__ == "__main__":
         app="main:app",
         host="0.0.0.0",
         port=18000,
-        reload=True,
+        reload=False,
     )
     server = Server(config)
     server.run()

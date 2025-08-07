@@ -4,8 +4,9 @@ from datetime import datetime
 from enum import Enum
 
 
-class MessageAction(str, Enum):
-    """WebSocket 메시지 액션 타입"""
+class MessageType(str, Enum):
+    """WebSocket 메시지 타입"""
+    # FastAPI -> DeepStream 메시지 타입들
     APP_READY = "app_ready"
     START_ANALYSIS = "start_analysis"
     PUSH_FILE = "push_file"
@@ -13,10 +14,8 @@ class MessageAction(str, Enum):
     TERMINATE_APP = "terminate_app"
     QUERY_METRICS = "query_metrics"
     QUERY_ANALYSIS_STATUS = "query_analysis_status"
-
-
-class MessageEvent(str, Enum):
-    """WebSocket 메시지 이벤트 타입"""
+    
+    # DeepStream -> FastAPI 메시지 타입들
     EXECUTE_ACK = "execute_ack"
     ANALYSIS_STARTED = "analysis_started"
     PUSH_ACK = "push_ack"
@@ -31,8 +30,8 @@ class MessageEvent(str, Enum):
 
 class AnalysisType(str, Enum):
     """분석 타입"""
-    STREAM = "stream"
-    FOLDER = "folder"
+    VIDEOSTREAM = "videostream"
+    FILESET = "fileset"
     FILE = "file"
 
 
@@ -49,7 +48,7 @@ class StatusType(str, Enum):
 # DeepStream -> FastAPI 메시지들
 class AppReadyMessage(BaseModel):
     """앱 준비 완료 메시지 (DeepStream -> FastAPI)"""
-    action: Literal[MessageAction.APP_READY] = MessageAction.APP_READY
+    type: Literal[MessageType.APP_READY] = MessageType.APP_READY
     request_id: str
     instance_id: str
     config_path: str
@@ -62,7 +61,7 @@ class AppReadyMessage(BaseModel):
 
 class AnalysisStartedMessage(BaseModel):
     """분석 시작 응답 메시지 (DeepStream -> FastAPI)"""
-    event: Literal[MessageEvent.ANALYSIS_STARTED] = MessageEvent.ANALYSIS_STARTED
+    type: Literal[MessageType.ANALYSIS_STARTED] = MessageType.ANALYSIS_STARTED
     request_id: str
     stream_id: int
     camera_id: int
@@ -73,7 +72,7 @@ class AnalysisStartedMessage(BaseModel):
 
 class ProcessingStartedMessage(BaseModel):
     """파일 처리 시작 메시지 (DeepStream -> FastAPI)"""
-    event: Literal[MessageEvent.PROCESSING_STARTED] = MessageEvent.PROCESSING_STARTED
+    type: Literal[MessageType.PROCESSING_STARTED] = MessageType.PROCESSING_STARTED
     request_id: str
     stream_id: int
     camera_id: int
@@ -83,7 +82,7 @@ class ProcessingStartedMessage(BaseModel):
 
 class FileDoneMessage(BaseModel):
     """파일 처리 완료 메시지 (DeepStream -> FastAPI)"""
-    event: Literal[MessageEvent.FILE_DONE] = MessageEvent.FILE_DONE
+    type: Literal[MessageType.FILE_DONE] = MessageType.FILE_DONE
     request_id: str
     stream_id: int
     camera_id: int
@@ -93,7 +92,7 @@ class FileDoneMessage(BaseModel):
 
 class AnalysisCompleteMessage(BaseModel):
     """분석 완료 메시지 (DeepStream -> FastAPI)"""
-    event: Literal[MessageEvent.ANALYSIS_COMPLETE] = MessageEvent.ANALYSIS_COMPLETE
+    type: Literal[MessageType.ANALYSIS_COMPLETE] = MessageType.ANALYSIS_COMPLETE
     request_id: str
     stream_id: int
     camera_id: int
@@ -104,7 +103,7 @@ class AnalysisCompleteMessage(BaseModel):
 
 class AnalysisInterruptedMessage(BaseModel):
     """분석 중단 응답 메시지 (DeepStream -> FastAPI)"""
-    event: Literal[MessageEvent.ANALYSIS_INTERRUPTED] = MessageEvent.ANALYSIS_INTERRUPTED
+    type: Literal[MessageType.ANALYSIS_INTERRUPTED] = MessageType.ANALYSIS_INTERRUPTED
     request_id: str
     stream_id: int
     camera_id: int
@@ -115,7 +114,7 @@ class AnalysisInterruptedMessage(BaseModel):
 
 class AppTerminatedMessage(BaseModel):
     """앱 종료 응답 메시지 (DeepStream -> FastAPI)"""
-    event: Literal[MessageEvent.APP_TERMINATED] = MessageEvent.APP_TERMINATED
+    type: Literal[MessageType.APP_TERMINATED] = MessageType.APP_TERMINATED
     request_id: str
     status: StatusType
     message: str
@@ -123,7 +122,7 @@ class AppTerminatedMessage(BaseModel):
 
 class PushAckMessage(BaseModel):
     """파일 푸시 응답 메시지 (DeepStream -> FastAPI)"""
-    event: Literal[MessageEvent.PUSH_ACK] = MessageEvent.PUSH_ACK
+    type: Literal[MessageType.PUSH_ACK] = MessageType.PUSH_ACK
     request_id: str
     stream_id: int
     camera_id: int
@@ -134,7 +133,7 @@ class PushAckMessage(BaseModel):
 # FastAPI -> DeepStream 메시지들
 class ExecuteAckMessage(BaseModel):
     """실행 확인 메시지 (FastAPI -> DeepStream)"""
-    event: Literal[MessageEvent.EXECUTE_ACK] = MessageEvent.EXECUTE_ACK
+    type: Literal[MessageType.EXECUTE_ACK] = MessageType.EXECUTE_ACK
     request_id: str
     instance_id: str
     config_verified: bool
@@ -149,11 +148,11 @@ class ExecuteAckMessage(BaseModel):
 
 class StartAnalysisMessage(BaseModel):
     """분석 시작 메시지 (FastAPI -> DeepStream)"""
-    action: Literal[MessageAction.START_ANALYSIS] = MessageAction.START_ANALYSIS
+    type: Literal[MessageType.START_ANALYSIS] = MessageType.START_ANALYSIS
     request_id: str
     stream_id: int
     camera_id: int
-    type: AnalysisType
+    camera_type: AnalysisType
     path: str
     name: str
     output_dir: str
@@ -175,7 +174,7 @@ class EOSItem(BaseModel):
 
 class PushFileMessage(BaseModel):
     """파일 푸시 메시지 (FastAPI -> DeepStream)"""
-    action: Literal[MessageAction.PUSH_FILE] = MessageAction.PUSH_FILE
+    type: Literal[MessageType.PUSH_FILE] = MessageType.PUSH_FILE
     request_id: str
     stream_id: int
     camera_id: int
@@ -185,7 +184,7 @@ class PushFileMessage(BaseModel):
 
 class InterruptAnalysisMessage(BaseModel):
     """분석 중단 메시지 (FastAPI -> DeepStream)"""
-    action: Literal[MessageAction.INTERRUPT_ANALYSIS] = MessageAction.INTERRUPT_ANALYSIS
+    type: Literal[MessageType.INTERRUPT_ANALYSIS] = MessageType.INTERRUPT_ANALYSIS
     request_id: str
     stream_id: int
     camera_id: int
@@ -194,19 +193,19 @@ class InterruptAnalysisMessage(BaseModel):
 
 class TerminateAppMessage(BaseModel):
     """앱 종료 메시지 (FastAPI -> DeepStream)"""
-    action: Literal[MessageAction.TERMINATE_APP] = MessageAction.TERMINATE_APP
+    type: Literal[MessageType.TERMINATE_APP] = MessageType.TERMINATE_APP
     request_id: str
 
 
 class QueryMetricsMessage(BaseModel):
     """메트릭 조회 메시지 (FastAPI -> DeepStream)"""
-    action: Literal[MessageAction.QUERY_METRICS] = MessageAction.QUERY_METRICS
+    type: Literal[MessageType.QUERY_METRICS] = MessageType.QUERY_METRICS
     request_id: str
 
 
 class QueryAnalysisStatusMessage(BaseModel):
     """분석 상태 조회 메시지 (FastAPI -> DeepStream)"""
-    action: Literal[MessageAction.QUERY_ANALYSIS_STATUS] = MessageAction.QUERY_ANALYSIS_STATUS
+    type: Literal[MessageType.QUERY_ANALYSIS_STATUS] = MessageType.QUERY_ANALYSIS_STATUS
     request_id: str
     stream_id: Optional[int] = None
     camera_id: Optional[int] = None
@@ -215,7 +214,7 @@ class QueryAnalysisStatusMessage(BaseModel):
 # 메트릭 및 상태 응답 모델들
 class MetricsResponse(BaseModel):
     """메트릭 응답 (DeepStream -> FastAPI)"""
-    event: Literal[MessageEvent.METRICS_RESPONSE] = MessageEvent.METRICS_RESPONSE
+    type: Literal[MessageType.METRICS_RESPONSE] = MessageType.METRICS_RESPONSE
     request_id: str
     cpu_percent: float
     ram_mb: float
@@ -261,7 +260,7 @@ class StreamStatus(BaseModel):
 
 class AnalysisStatusResponse(BaseModel):
     """분석 상태 응답 (DeepStream -> FastAPI)"""
-    event: Literal[MessageEvent.ANALYSIS_STATUS] = MessageEvent.ANALYSIS_STATUS
+    type: Literal[MessageType.ANALYSIS_STATUS] = MessageType.ANALYSIS_STATUS
     request_id: str
     timestamp: str = Field(default_factory=lambda: datetime.now().isoformat())
     streams: Optional[List[StreamStatus]] = None  # 전체 조회시

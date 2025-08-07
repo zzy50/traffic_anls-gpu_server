@@ -17,6 +17,35 @@ logger = logging.getLogger(__name__)
 
 
 @dataclass
+class ConfigPaths:
+    """설정 파일 경로들을 관리하는 데이터클래스"""
+    log_dir_in_container: str
+    main_config_file: str
+    logging_config_file: str
+    websocket_config_file: str
+    
+    @classmethod
+    def from_log_dir(cls, log_dir: str, instance_id: str) -> "ConfigPaths":
+        """log_dir을 기준으로 모든 경로 생성"""
+        log_dir_in_container = cls._convert_to_container_path(log_dir)
+        
+        return cls(
+            log_dir_in_container=log_dir_in_container,
+            main_config_file=f"{log_dir_in_container}/ds_config_{instance_id}.txt",
+            logging_config_file=f"{log_dir_in_container}/logging_config.txt",
+            websocket_config_file=f"{log_dir_in_container}/websocket_config.txt"
+        )
+    
+    @staticmethod
+    def _convert_to_container_path(host_path: str) -> str:
+        """호스트 경로를 컨테이너 경로로 변환"""
+        return host_path.replace(
+            "/mnt/storage/admin_storage/deepstream_vmnt/", 
+            "/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/"
+        )
+
+
+@dataclass
 class ProcessInfo:
     """실행된 프로세스 정보"""
     process_id: str  # 내부 관리용 UUID
@@ -29,7 +58,6 @@ class ProcessInfo:
     launched_at: datetime = field(default_factory=datetime.now)
     command: Optional[str] = None
     error_message: Optional[str] = None
-    log_dir: Optional[str] = None
 
 
 class ProcessLauncher:
@@ -38,6 +66,17 @@ class ProcessLauncher:
     def __init__(self):
         self.processes: Dict[str, ProcessInfo] = {}
         self.default_container = "deepstream_container"
+    
+    def _get_config_template_paths(self) -> Dict[str, Path]:
+        """템플릿 설정 파일들의 경로를 반환"""
+        return {
+            "ds_config": Path("ds_configs/ds_config.txt"),
+            "primary_gie": Path("ds_configs/config_infer_primary_yoloV8.txt"),
+            "tracker": Path("ds_configs/config_tracker_NvSORT_custom.yml"),
+            "labelfile": Path("ds_configs/info_cls-7_bike.txt"),
+            "logging": Path("ds_configs/logging_config.txt"),
+            "websocket": Path("ds_configs/websocket_config.txt")
+        }
     
     def generate_instance_id(self, prefix: str = "stream") -> str:
         """고유한 인스턴스 ID 생성"""
@@ -89,7 +128,6 @@ class ProcessLauncher:
             (/mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/logs)
             streams_count: 스트림 개수 (설정에서 자동 추출 가능)
             instance_id: 인스턴스 ID (없으면 자동 생성)
-            docker_container: 도커 컨테이너 이름
         
         Returns:
             (성공여부, 메시지, 프로세스정보)
@@ -101,6 +139,8 @@ class ProcessLauncher:
             
             docker_container = "infer_traffic"
             app_path_in_container = "/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/DeepStream-Yolo/custom_app_7.1/dist/deepstream-app"
+            config_path_dict = self._get_config_template_paths()
+
 
             # 컨테이너 실행 여부 확인
             if not self.check_container_running(docker_container):
@@ -117,22 +157,24 @@ class ProcessLauncher:
                 streams_count=streams_count
             )
 
-            
             # streams_count가 없으면 기본값 1로 설정
             if streams_count and streams_count <= 0:
                 streams_count = 1
 
-            config_path_in_container, log_dir_in_container = self.setup_config(log_dir, streams_count, instance_id)
+            # 설정 파일 생성 및 경로 정보 가져오기
+            config_paths = self.setup_config(log_dir, streams_count, instance_id, config_path_dict)
             
             # DeepStream 실행 명령 구성
-            deepstream_cmd = [app_path_in_container, "-c", config_path_in_container]
+            deepstream_cmd = [app_path_in_container, "-c", config_paths.main_config_file]
             
             # Docker exec 명령 구성
             docker_cmd = [
                 "docker", "exec", "-d",  # -d는 detached 모드
                 "-e", f"APP_ID={instance_id}",
-                "-e", f"DS_MAIN_CONFIG_FILE={config_path_in_container}",
-                "-e", f"DS_LOG_BASE_DIR={log_dir_in_container}",
+                "-e", f"DS_MAIN_CONFIG_FILE={config_paths.main_config_file}",
+                "-e", f"DS_WS_CONFIG_FILE={config_paths.websocket_config_file}",
+                "-e", f"DS_LOG_CONFIG_FILE={config_paths.logging_config_file}",
+                "-e", f"DS_LOG_BASE_DIR={config_paths.log_dir_in_container}",
                 docker_container
             ] + deepstream_cmd
             
@@ -175,55 +217,52 @@ class ProcessLauncher:
             
             return False, error_msg, None
 
-    def setup_config(self, log_dir: str, streams_count: int, instance_id: str) -> str:
+    def setup_config(self, log_dir: str, streams_count: int, instance_id: str, config_path_dict: Dict[str, Path]) -> ConfigPaths:
         """
-        template.txt를 기반으로 새로운 config 파일을 생성
+        template.txt를 기반으로 새로운 config 파일을 생성하고 ConfigPaths 객체 반환
         
         Args:
-            log_dir: 로그 디렉토리 경로
+            log_dir: 로그 디렉토리 경로 (호스트)
             streams_count: 스트림 개수
             instance_id: 인스턴스 ID
+            config_path_dict: 템플릿 설정 파일들의 경로
             
         Returns:
-            생성된 config 파일의 경로
+            ConfigPaths: 생성된 설정 파일들의 경로 정보
         """
         try:
-            # template 파일 경로
-            template_path = Path("ds_configs/template.txt")
-            primary_gie_config_path = Path("ds_configs/config_infer_primary_yoloV8.txt")
-            tracker_config_path = Path("ds_configs/config_tracker_NvSORT_custom.yml")
-            labelfile_path = Path("ds_configs/info_cls-7_bike.txt")
-
-            shutil.copy(primary_gie_config_path, log_dir)
-            shutil.copy(tracker_config_path, log_dir)
-            shutil.copy(labelfile_path, log_dir)
+            # 필요한 설정 파일들을 log_dir로 복사
+            shutil.copy(config_path_dict["primary_gie"], log_dir)
+            shutil.copy(config_path_dict["tracker"], log_dir)
+            shutil.copy(config_path_dict["labelfile"], log_dir)
+            shutil.copy(config_path_dict["logging"], log_dir)
+            shutil.copy(config_path_dict["websocket"], log_dir)
 
             # template 파일 읽기
-            if not template_path.exists():
-                raise FileNotFoundError(f"Template 파일을 찾을 수 없습니다: {template_path}")
+            ds_template_path = config_path_dict["ds_config"]
+            if not ds_template_path.exists():
+                raise FileNotFoundError(f"Template 파일을 찾을 수 없습니다: {ds_template_path}")
             
-            with open(template_path, 'r', encoding='utf-8') as f:
-                template_content = f.read()
+            with open(ds_template_path, 'r', encoding='utf-8') as f:
+                ds_config_content = f.read()
     
-            log_dir_in_container = log_dir.replace(
-                "/mnt/storage/admin_storage/deepstream_vmnt/", 
-                "/opt/nvidia/deepstream/deepstream/cityeyelab/vmnt/"
-            )
+            # ConfigPaths 객체 생성 (모든 경로 계산)
+            config_paths = ConfigPaths.from_log_dir(log_dir, instance_id)
 
-            # 새 config 파일 경로 생성
-            config_filename = f"config_{instance_id}.txt"
-            config_path = Path(log_dir) / config_filename
-            config_path_in_container = str(Path(log_dir_in_container) / config_filename)
+            # 메인 config 파일의 호스트 경로 생성
+            ds_config_filename = f"ds_config_{instance_id}.txt"
+            ds_config_host_path = Path(log_dir) / ds_config_filename
 
             # template에서 [application] 섹션의 log-dir 수정
-            lines = template_content.split('\n')
+            lines = ds_config_content.split('\n')
             modified_lines = []
             
             for line in lines:
-                if line.strip().startswith('log-dir='):
-                    modified_lines.append(f'log-dir={log_dir_in_container}')
-                else:
-                    modified_lines.append(line)
+                # if line.strip().startswith('log-dir='):
+                #     modified_lines.append(f'log-dir={config_paths.log_dir_in_container}')
+                # else:
+                #     modified_lines.append(line)
+                modified_lines.append(line)
             
             # [source0] 섹션을 찾아서 streams_count만큼 복사
             source0_section = []
@@ -257,11 +296,11 @@ class ProcessLauncher:
                 final_content += '\n\n' + '\n'.join(additional_sources)
             
             # config 파일 저장
-            with open(config_path, 'w', encoding='utf-8') as f:
+            with open(ds_config_host_path, 'w', encoding='utf-8') as f:
                 f.write(final_content)
             
-            logger.info(f"Config 파일 생성 완료: {config_path} (streams: {streams_count})")
-            return config_path_in_container, log_dir_in_container
+            logger.info(f"Config 파일 생성 완료: {ds_config_host_path} (streams: {streams_count})")
+            return config_paths
             
         except Exception as e:
             error_msg = f"Config 파일 생성 실패: {str(e)}"
