@@ -160,7 +160,7 @@ class StartAnalysisMessage(BaseModel):
 
 class FileItem(BaseModel):
     """파일 아이템"""
-    item_type: Literal["file"] = "file"
+    file_type: Literal["file"] = "file"
     file_id: int
     file_path: str
     file_name: str
@@ -169,7 +169,7 @@ class FileItem(BaseModel):
 
 class EOSItem(BaseModel):
     """EOS 아이템"""
-    item_type: Literal["eos"] = "eos"
+    file_type: Literal["eos"] = "eos"
 
 
 class PushFileMessage(BaseModel):
@@ -178,8 +178,8 @@ class PushFileMessage(BaseModel):
     request_id: str
     stream_id: int
     camera_id: int
-    items_count: int
-    items: List[Union[FileItem, EOSItem]]
+    files_count: int
+    files: List[Union[FileItem, EOSItem]]
 
 
 class InterruptAnalysisMessage(BaseModel):

@@ -403,9 +403,9 @@ class WebSocketManager:
             return False
         
         try:
-            items = []
+            files = []
             for file_data in files_data:
-                items.append(FileItem(
+                files.append(FileItem(
                     file_id=file_data["file_id"],
                     file_path=file_data["file_path"],
                     file_name=file_data["file_name"],
@@ -413,14 +413,14 @@ class WebSocketManager:
                 ))
             
             # EOS 마커 추가
-            items.append(EOSItem())
+            files.append(EOSItem())
             
             message = PushFileMessage(
                 request_id=str(uuid.uuid4()),
                 stream_id=stream_id,
                 camera_id=camera_id,
-                items_count=len(files_data),  # EOS 제외한 파일 개수
-                items=items
+                files_count=len(files_data),  # EOS 제외한 파일 개수
+                files=files
             )
             await connection.send_message(message)
             return True
