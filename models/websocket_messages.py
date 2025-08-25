@@ -131,6 +131,15 @@ class PushAckMessage(BaseModel):
 
 
 # FastAPI -> DeepStream 메시지들
+class InitFile(BaseModel):
+    """초기 파일 정보"""
+    file_type: Literal["videostream", "file"]
+    file_id: int
+    file_path: str
+    file_name: str
+    output_path: str
+
+
 class ExecuteAckMessage(BaseModel):
     """실행 확인 메시지 (FastAPI -> DeepStream)"""
     type: Literal[MessageType.EXECUTE_ACK] = MessageType.EXECUTE_ACK
@@ -156,6 +165,7 @@ class StartAnalysisMessage(BaseModel):
     path: str
     name: str
     output_dir: str
+    init_file: Optional[InitFile] = None
 
 
 class FileItem(BaseModel):

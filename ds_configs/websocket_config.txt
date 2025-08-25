@@ -26,3 +26,33 @@ worker_thread_count=0
 # Debugging and logging
 enable_debug_output=false
 log_message_content=false
+
+
+# Health check settings
+# Health check interval in seconds (0 = disabled)
+health_check_interval_sec=30
+
+# Health check timeout in seconds
+health_check_timeout_sec=5
+
+# Enable health check monitoring (true/false)
+health_check_enabled=true
+
+
+# Graceful shutdown settings
+# Graceful shutdown timeout in seconds
+graceful_shutdown_timeout_sec=10
+
+# Pipeline stop timeout in seconds
+pipeline_stop_timeout_sec=5
+
+
+# Advanced reconnection settings
+# Enable exponential backoff for reconnection (true/false)
+exponential_backoff_enabled=true
+
+# Maximum reconnection delay in seconds
+max_reconnect_delay_sec=60
+
+# Retry delay for server shutdown situations in seconds
+server_shutdown_retry_delay_sec=10

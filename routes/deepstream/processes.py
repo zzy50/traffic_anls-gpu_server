@@ -58,12 +58,11 @@ async def get_all_processes():
             process_id=process.process_id,
             instance_id=process.instance_id,
             config_path=process.log_dir,
-            docker_container=process.docker_container,
             host_pid=process.host_pid,
             container_pid=process.container_pid,
             status=process.status,
             launched_at=process.launched_at.isoformat(),
-            log_path=process.log_path,
+            log_dir=process.log_dir,
             command=process.command,
             error_message=process.error_message
         ))
@@ -96,7 +95,7 @@ async def get_process_status(process_id: str = FastAPIPath(..., description="프
         container_pid=process.container_pid,
         status=process.status,
         launched_at=process.launched_at.isoformat(),
-        log_path=process.log_path,
+        log_dir=process.log_path,
         command=process.command,
         error_message=process.error_message
     )
@@ -153,7 +152,7 @@ async def get_process_by_instance_id(instance_id: str = FastAPIPath(..., descrip
         container_pid=process.container_pid,
         status=process.status,
         launched_at=process.launched_at.isoformat(),
-        log_path=process.log_path,
+        log_dir=process.log_path,
         command=process.command,
         error_message=process.error_message
     )

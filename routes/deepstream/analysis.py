@@ -68,7 +68,8 @@ async def start_analysis(request: AnalysisRequest):
         request.camera_type.value,
         request.path,
         request.name,
-        request.output_dir
+        request.output_dir,
+        request.init_file
     )
     
     if ws_success and request.files:

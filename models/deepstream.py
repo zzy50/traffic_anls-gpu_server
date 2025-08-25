@@ -1,7 +1,7 @@
 from typing import List, Optional, Dict, Any
 from pydantic import BaseModel
 
-from models.websocket_messages import AnalysisType
+from models.websocket_messages import AnalysisType, InitFile
 
 
 # 요청 모델들
@@ -13,6 +13,7 @@ class AnalysisRequest(BaseModel):
     name: str
     output_dir: str
     files: Optional[List[Dict]] = None
+    init_file: Optional[InitFile] = None
 
 
 class LaunchRequest(BaseModel):
@@ -88,12 +89,11 @@ class ProcessStatusInfo(BaseModel):
     process_id: str
     instance_id: str
     config_path: str
-    docker_container: str
     host_pid: Optional[int] = None
     container_pid: Optional[int] = None
     status: str
     launched_at: str
-    log_path: Optional[str] = None
+    log_dir: Optional[str] = None
     command: Optional[str] = None
     error_message: Optional[str] = None
 

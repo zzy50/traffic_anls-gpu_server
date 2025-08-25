@@ -546,3 +546,375 @@
 2025-08-07 17:37:33.067 - services.websocket_manager - INFO - WebSocket 연결 해제: ed07b64a-efb3-4d7d-9a33-20e69af013f3
 2025-08-07 17:37:33.069 - services.websocket_manager - INFO - WebSocket 연결 해제: ed07b64a-efb3-4d7d-9a33-20e69af013f3
 2025-08-07 17:37:33.071 - connection closed
+2025-08-07 19:04:29.919 - Shutting down
+2025-08-07 19:04:30.024 - Waiting for application shutdown.
+2025-08-07 19:04:30.027 - root - INFO - Stopping application...
+2025-08-07 19:04:30.028 - Application shutdown complete.
+2025-08-07 19:04:30.030 - Finished server process [3147519]
+2025-08-07 19:04:30.661 - Started server process [3291090]
+2025-08-07 19:04:30.661 - Waiting for application startup.
+2025-08-07 19:04:30.663 - root - INFO - Starting application...
+2025-08-07 19:04:30.665 - Application startup complete.
+2025-08-07 19:04:30.669 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-07 19:05:38.033 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-07 19:05:38.034 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-07 19:05:38.037 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-07 19:05:38.037 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 3292577)
+2025-08-07 19:05:38.039 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-07 19:05:38.539 - 192.168.100.3:57372 - "WebSocket /deepstream/ws" [accepted]
+2025-08-07 19:05:38.539 - services.websocket_manager - INFO - 새 WebSocket 연결: 04f78058-b122-4a0d-b76a-78c84551615b
+2025-08-07 19:05:38.541 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: 04f78058-b122-4a0d-b76a-78c84551615b
+2025-08-07 19:05:38.544 - connection open
+2025-08-07 19:05:38.546 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 1716155
+2025-08-07 19:05:38.546 - services.websocket_manager - ERROR - Streams count 불일치 - 예상: 5, 실제: 0
+2025-08-07 19:05:38.548 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-07 19:05:38.550 - services.websocket_manager - WARNING - 알 수 없는 메시지 타입: error
+2025-08-07 19:06:13.676 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-07 19:06:13.677 - services.websocket_manager - INFO - 클라이언트 연결 종료: 04f78058-b122-4a0d-b76a-78c84551615b
+2025-08-07 19:06:13.679 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-07 19:06:13.680 - services.websocket_manager - INFO - WebSocket 연결 해제: 04f78058-b122-4a0d-b76a-78c84551615b
+2025-08-07 19:06:13.681 - services.websocket_manager - INFO - WebSocket 연결 해제: 04f78058-b122-4a0d-b76a-78c84551615b
+2025-08-07 19:06:13.683 - connection closed
+2025-08-11 10:14:14.961 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-11 10:14:14.963 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-11 10:14:14.996 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-11 10:14:14.996 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 1120591)
+2025-08-11 10:14:14.999 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-11 10:14:15.608 - 192.168.100.3:33532 - "WebSocket /deepstream/ws" [accepted]
+2025-08-11 10:14:15.609 - services.websocket_manager - INFO - 새 WebSocket 연결: dabd3ddf-94da-4574-8565-fef45bbbd897
+2025-08-11 10:14:15.611 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: dabd3ddf-94da-4574-8565-fef45bbbd897
+2025-08-11 10:14:15.614 - connection open
+2025-08-11 10:14:15.617 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 2802977
+2025-08-11 10:14:15.618 - services.websocket_manager - ERROR - Streams count 불일치 - 예상: 5, 실제: 0
+2025-08-11 10:14:15.620 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-11 10:15:16.544 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-11 10:15:16.545 - services.websocket_manager - INFO - 클라이언트 연결 종료: dabd3ddf-94da-4574-8565-fef45bbbd897
+2025-08-11 10:15:16.547 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-11 10:15:16.549 - services.websocket_manager - INFO - WebSocket 연결 해제: dabd3ddf-94da-4574-8565-fef45bbbd897
+2025-08-11 10:15:16.550 - services.websocket_manager - INFO - WebSocket 연결 해제: dabd3ddf-94da-4574-8565-fef45bbbd897
+2025-08-11 10:15:16.552 - connection closed
+2025-08-11 10:48:33.213 - Shutting down
+2025-08-11 10:48:33.314 - Waiting for application shutdown.
+2025-08-11 10:48:33.316 - root - INFO - Stopping application...
+2025-08-11 10:48:33.317 - Application shutdown complete.
+2025-08-11 10:48:33.319 - Finished server process [3291090]
+2025-08-11 10:48:33.932 - Started server process [1165838]
+2025-08-11 10:48:33.933 - Waiting for application startup.
+2025-08-11 10:48:33.934 - root - INFO - Starting application...
+2025-08-11 10:48:33.936 - Application startup complete.
+2025-08-11 10:48:33.940 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-11 14:32:30.968 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-11 14:32:30.970 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-11 14:32:30.974 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-11 14:32:30.974 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 2127615)
+2025-08-11 14:32:30.977 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-11 14:32:31.223 - 192.168.100.3:58922 - "WebSocket /deepstream/ws" [accepted]
+2025-08-11 14:32:31.224 - services.websocket_manager - INFO - 새 WebSocket 연결: d167d099-714d-49fe-abb9-8c7a3afb3d1a
+2025-08-11 14:32:31.226 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: d167d099-714d-49fe-abb9-8c7a3afb3d1a
+2025-08-11 14:32:31.228 - connection open
+2025-08-11 14:32:31.231 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 3153801
+2025-08-11 14:32:31.231 - services.websocket_manager - ERROR - Streams count 불일치 - 예상: 5, 실제: 0
+2025-08-11 14:32:31.233 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-11 14:38:21.248 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-11 14:53:44.261 - services.websocket_manager - INFO - 클라이언트 연결 종료: d167d099-714d-49fe-abb9-8c7a3afb3d1a
+2025-08-11 14:53:44.263 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-11 14:53:44.264 - services.websocket_manager - INFO - WebSocket 연결 해제: d167d099-714d-49fe-abb9-8c7a3afb3d1a
+2025-08-11 14:53:44.265 - services.websocket_manager - INFO - WebSocket 연결 해제: d167d099-714d-49fe-abb9-8c7a3afb3d1a
+2025-08-11 14:53:44.266 - connection closed
+2025-08-11 15:17:56.987 - 192.168.100.123:0 - "GET / HTTP/1.1" 200
+2025-08-11 15:17:57.077 - 192.168.100.123:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-08-11 15:18:01.562 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-11 15:18:01.755 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
+2025-08-11 15:23:17.710 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-11 15:23:17.711 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-11 15:23:17.714 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-11 15:23:17.715 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 2160445)
+2025-08-11 15:23:17.717 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-11 15:23:17.910 - 192.168.100.3:54062 - "WebSocket /deepstream/ws" [accepted]
+2025-08-11 15:23:17.911 - services.websocket_manager - INFO - 새 WebSocket 연결: d51c4ea5-4f13-4f62-b7f9-738b68a38cb1
+2025-08-11 15:23:17.913 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: d51c4ea5-4f13-4f62-b7f9-738b68a38cb1
+2025-08-11 15:23:17.915 - connection open
+2025-08-11 15:23:17.918 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 3168975
+2025-08-11 15:23:17.919 - services.websocket_manager - ERROR - Streams count 불일치 - 예상: 5, 실제: 0
+2025-08-11 15:23:17.921 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-11 15:23:25.790 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-11 15:23:25.791 - services.websocket_manager - INFO - 클라이언트 연결 종료: d51c4ea5-4f13-4f62-b7f9-738b68a38cb1
+2025-08-11 15:23:25.793 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-11 15:23:25.794 - services.websocket_manager - INFO - WebSocket 연결 해제: d51c4ea5-4f13-4f62-b7f9-738b68a38cb1
+2025-08-11 15:23:25.797 - services.websocket_manager - INFO - WebSocket 연결 해제: d51c4ea5-4f13-4f62-b7f9-738b68a38cb1
+2025-08-11 15:23:25.798 - connection closed
+2025-08-11 16:34:28.802 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-11 16:34:28.806 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-11 16:34:28.809 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-11 16:34:28.810 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 2248351)
+2025-08-11 16:34:28.811 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-11 16:34:29.301 - 192.168.100.3:35070 - "WebSocket /deepstream/ws" [accepted]
+2025-08-11 16:34:29.301 - services.websocket_manager - INFO - 새 WebSocket 연결: b749b04e-6667-4445-b5d2-3eb03fa7db36
+2025-08-11 16:34:29.303 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: b749b04e-6667-4445-b5d2-3eb03fa7db36
+2025-08-11 16:34:29.305 - connection open
+2025-08-11 16:34:29.306 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 3231078
+2025-08-11 16:34:29.307 - services.websocket_manager - ERROR - Streams count 불일치 - 예상: 5, 실제: 0
+2025-08-11 16:34:29.308 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-11 16:38:22.514 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-11 16:38:22.516 - services.websocket_manager - INFO - 클라이언트 연결 종료: b749b04e-6667-4445-b5d2-3eb03fa7db36
+2025-08-11 16:38:22.518 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-11 16:38:22.519 - services.websocket_manager - INFO - WebSocket 연결 해제: b749b04e-6667-4445-b5d2-3eb03fa7db36
+2025-08-11 16:38:22.520 - services.websocket_manager - INFO - WebSocket 연결 해제: b749b04e-6667-4445-b5d2-3eb03fa7db36
+2025-08-11 16:38:22.522 - connection closed
+2025-08-11 16:38:30.279 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-11 16:38:30.279 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-11 16:38:30.282 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-11 16:38:30.283 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 2254862)
+2025-08-11 16:38:30.284 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-11 16:38:30.477 - 192.168.100.3:40358 - "WebSocket /deepstream/ws" [accepted]
+2025-08-11 16:38:30.478 - services.websocket_manager - INFO - 새 WebSocket 연결: bacc5b7c-9ce0-4578-8245-e5a107d59382
+2025-08-11 16:38:30.479 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: bacc5b7c-9ce0-4578-8245-e5a107d59382
+2025-08-11 16:38:30.481 - connection open
+2025-08-11 16:38:30.483 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 3235939
+2025-08-11 16:38:30.484 - services.websocket_manager - ERROR - Streams count 불일치 - 예상: 5, 실제: 1
+2025-08-11 16:38:30.485 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-11 16:40:39.955 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-11 16:40:39.956 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-11 16:40:39.958 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-11 16:40:39.958 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 2258297)
+2025-08-11 16:40:39.960 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-11 16:40:40.343 - 192.168.100.3:59282 - "WebSocket /deepstream/ws" [accepted]
+2025-08-11 16:40:40.343 - services.websocket_manager - INFO - 새 WebSocket 연결: ed1fbdf1-5c29-41aa-a527-fe19493929c7
+2025-08-11 16:40:40.345 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: ed1fbdf1-5c29-41aa-a527-fe19493929c7
+2025-08-11 16:40:40.347 - connection open
+2025-08-11 16:40:40.351 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 3238595
+2025-08-11 16:40:40.351 - services.websocket_manager - INFO - Streams count 검증 성공: 777 -> 5
+2025-08-11 16:40:40.353 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-11 16:42:52.259 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-11 16:42:52.260 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-11 16:42:52.262 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-11 16:42:52.262 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 2261861)
+2025-08-11 16:42:52.264 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-11 16:42:52.471 - 192.168.100.3:50202 - "WebSocket /deepstream/ws" [accepted]
+2025-08-11 16:42:52.472 - services.websocket_manager - INFO - 새 WebSocket 연결: 8e55f723-4be1-4c58-88d4-1a85acd6216c
+2025-08-11 16:42:52.473 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: 8e55f723-4be1-4c58-88d4-1a85acd6216c
+2025-08-11 16:42:52.475 - connection open
+2025-08-11 16:42:52.476 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 3241330
+2025-08-11 16:42:52.477 - services.websocket_manager - INFO - Streams count 검증 성공: 777 -> 5
+2025-08-11 16:42:52.478 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-11 16:49:27.437 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-11 16:49:27.438 - services.websocket_manager - INFO - 클라이언트 연결 종료: 8e55f723-4be1-4c58-88d4-1a85acd6216c
+2025-08-11 16:49:27.440 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-11 16:49:27.441 - services.websocket_manager - INFO - WebSocket 연결 해제: 8e55f723-4be1-4c58-88d4-1a85acd6216c
+2025-08-11 16:49:27.442 - services.websocket_manager - INFO - WebSocket 연결 해제: 8e55f723-4be1-4c58-88d4-1a85acd6216c
+2025-08-11 16:49:27.443 - connection closed
+2025-08-11 16:49:27.445 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-11 16:49:27.446 - services.websocket_manager - INFO - 클라이언트 연결 종료: ed1fbdf1-5c29-41aa-a527-fe19493929c7
+2025-08-11 16:49:27.447 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-11 16:49:27.449 - services.websocket_manager - INFO - WebSocket 연결 해제: ed1fbdf1-5c29-41aa-a527-fe19493929c7
+2025-08-11 16:49:27.450 - services.websocket_manager - INFO - WebSocket 연결 해제: ed1fbdf1-5c29-41aa-a527-fe19493929c7
+2025-08-11 16:49:27.451 - connection closed
+2025-08-11 16:49:27.483 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-11 16:49:27.484 - services.websocket_manager - INFO - 클라이언트 연결 종료: bacc5b7c-9ce0-4578-8245-e5a107d59382
+2025-08-11 16:49:27.486 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-11 16:49:27.488 - services.websocket_manager - INFO - WebSocket 연결 해제: bacc5b7c-9ce0-4578-8245-e5a107d59382
+2025-08-11 16:49:27.490 - services.websocket_manager - INFO - WebSocket 연결 해제: bacc5b7c-9ce0-4578-8245-e5a107d59382
+2025-08-11 16:49:27.492 - connection closed
+2025-08-11 17:06:30.396 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-11 17:06:30.397 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-11 17:06:30.437 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-11 17:06:30.438 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 2291487)
+2025-08-11 17:06:30.440 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-11 17:06:30.655 - 192.168.100.3:46900 - "WebSocket /deepstream/ws" [accepted]
+2025-08-11 17:06:30.656 - services.websocket_manager - INFO - 새 WebSocket 연결: 30357057-a5b9-44d2-a995-fe0c5dfe507b
+2025-08-11 17:06:30.657 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: 30357057-a5b9-44d2-a995-fe0c5dfe507b
+2025-08-11 17:06:30.660 - connection open
+2025-08-11 17:06:30.662 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 3262228
+2025-08-11 17:06:30.662 - services.websocket_manager - INFO - Streams count 검증 성공: 777 -> 5
+2025-08-11 17:06:30.664 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-11 17:25:40.152 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-11 17:25:40.153 - services.websocket_manager - INFO - 클라이언트 연결 종료: 30357057-a5b9-44d2-a995-fe0c5dfe507b
+2025-08-11 17:25:40.185 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-11 17:25:40.186 - services.websocket_manager - INFO - WebSocket 연결 해제: 30357057-a5b9-44d2-a995-fe0c5dfe507b
+2025-08-11 17:25:40.187 - services.websocket_manager - INFO - WebSocket 연결 해제: 30357057-a5b9-44d2-a995-fe0c5dfe507b
+2025-08-11 17:25:40.189 - connection closed
+2025-08-11 17:26:53.763 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-11 17:26:53.763 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-11 17:26:53.766 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-11 17:26:53.766 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 2316810)
+2025-08-11 17:26:53.767 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-11 17:26:54.010 - 192.168.100.3:40680 - "WebSocket /deepstream/ws" [accepted]
+2025-08-11 17:26:54.010 - services.websocket_manager - INFO - 새 WebSocket 연결: 5aeb1718-f66c-46be-a804-5f0eba1c85dd
+2025-08-11 17:26:54.012 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: 5aeb1718-f66c-46be-a804-5f0eba1c85dd
+2025-08-11 17:26:54.014 - connection open
+2025-08-11 17:26:54.016 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 3279919
+2025-08-11 17:26:54.017 - services.websocket_manager - INFO - Streams count 검증 성공: 777 -> 5
+2025-08-11 17:26:54.018 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-12 11:43:06.090 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-12 11:43:06.111 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-12 11:43:06.153 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-12 11:43:06.164 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 724784)
+2025-08-12 11:43:06.196 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-12 11:43:06.767 - 192.168.100.3:54252 - "WebSocket /deepstream/ws" [accepted]
+2025-08-12 11:43:06.790 - services.websocket_manager - INFO - 새 WebSocket 연결: e838862d-d998-4232-b8b4-a16534189b4e
+2025-08-12 11:43:06.822 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: e838862d-d998-4232-b8b4-a16534189b4e
+2025-08-12 11:43:06.852 - connection open
+2025-08-12 11:43:06.883 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 1220207
+2025-08-12 11:43:06.903 - services.websocket_manager - INFO - Streams count 검증 성공: 777 -> 5
+2025-08-12 11:43:06.925 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-12 11:43:37.816 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-12 11:43:37.838 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-12 11:43:37.907 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-12 11:43:37.920 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 726733)
+2025-08-12 11:43:37.934 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-12 11:43:38.544 - 192.168.100.3:58494 - "WebSocket /deepstream/ws" [accepted]
+2025-08-12 11:43:38.574 - services.websocket_manager - INFO - 새 WebSocket 연결: cbb0a741-9c8e-44cd-8adb-2355976b41a1
+2025-08-12 11:43:38.617 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: cbb0a741-9c8e-44cd-8adb-2355976b41a1
+2025-08-12 11:43:38.641 - connection open
+2025-08-12 11:43:38.662 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 1221982
+2025-08-12 11:43:38.704 - services.websocket_manager - INFO - Streams count 검증 성공: 777 -> 5
+2025-08-12 11:43:38.742 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-12 13:17:12.171 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-12 13:17:12.225 - services.websocket_manager - INFO - 클라이언트 연결 종료: e838862d-d998-4232-b8b4-a16534189b4e
+2025-08-12 13:17:12.257 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-12 13:17:12.271 - services.websocket_manager - INFO - WebSocket 연결 해제: e838862d-d998-4232-b8b4-a16534189b4e
+2025-08-12 13:17:12.298 - services.websocket_manager - INFO - WebSocket 연결 해제: e838862d-d998-4232-b8b4-a16534189b4e
+2025-08-12 13:17:12.326 - connection closed
+2025-08-12 13:17:12.365 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-12 13:17:12.400 - services.websocket_manager - INFO - 클라이언트 연결 종료: cbb0a741-9c8e-44cd-8adb-2355976b41a1
+2025-08-12 13:17:12.432 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-12 13:17:12.464 - services.websocket_manager - INFO - WebSocket 연결 해제: cbb0a741-9c8e-44cd-8adb-2355976b41a1
+2025-08-12 13:17:12.486 - services.websocket_manager - INFO - WebSocket 연결 해제: cbb0a741-9c8e-44cd-8adb-2355976b41a1
+2025-08-12 13:17:12.501 - connection closed
+2025-08-12 13:17:12.534 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-12 13:17:12.560 - services.websocket_manager - INFO - 클라이언트 연결 종료: 5aeb1718-f66c-46be-a804-5f0eba1c85dd
+2025-08-12 13:17:12.595 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-12 13:17:12.630 - services.websocket_manager - INFO - WebSocket 연결 해제: 5aeb1718-f66c-46be-a804-5f0eba1c85dd
+2025-08-12 13:17:12.660 - services.websocket_manager - INFO - WebSocket 연결 해제: 5aeb1718-f66c-46be-a804-5f0eba1c85dd
+2025-08-12 13:17:12.681 - connection closed
+2025-08-12 13:30:55.809 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-12 13:30:55.842 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-12 13:30:55.896 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-12 13:30:55.906 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 848252)
+2025-08-12 13:30:55.916 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-12 13:30:56.828 - 192.168.100.3:53356 - "WebSocket /deepstream/ws" [accepted]
+2025-08-12 13:30:56.842 - services.websocket_manager - INFO - 새 WebSocket 연결: d36ee969-5cc9-4eee-a9c7-ae81b23b08bd
+2025-08-12 13:30:56.857 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: d36ee969-5cc9-4eee-a9c7-ae81b23b08bd
+2025-08-12 13:30:56.878 - connection open
+2025-08-12 13:30:56.900 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 1331334
+2025-08-12 13:30:56.926 - services.websocket_manager - INFO - Streams count 검증 성공: 777 -> 5
+2025-08-12 13:30:56.956 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-12 13:33:29.752 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-12 13:33:29.795 - services.websocket_manager - INFO - 클라이언트 연결 종료: d36ee969-5cc9-4eee-a9c7-ae81b23b08bd
+2025-08-12 13:33:29.851 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-12 13:33:29.879 - services.websocket_manager - INFO - WebSocket 연결 해제: d36ee969-5cc9-4eee-a9c7-ae81b23b08bd
+2025-08-12 13:33:29.902 - services.websocket_manager - INFO - WebSocket 연결 해제: d36ee969-5cc9-4eee-a9c7-ae81b23b08bd
+2025-08-12 13:33:29.929 - connection closed
+2025-08-12 13:33:42.218 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-12 13:33:42.238 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-12 13:33:42.273 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-12 13:33:42.280 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 852094)
+2025-08-12 13:33:42.302 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-12 13:33:43.376 - 192.168.100.3:57102 - "WebSocket /deepstream/ws" [accepted]
+2025-08-12 13:33:43.391 - services.websocket_manager - INFO - 새 WebSocket 연결: 789fb470-f6e0-4bb5-ac1c-8be837d7e99d
+2025-08-12 13:33:43.404 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: 789fb470-f6e0-4bb5-ac1c-8be837d7e99d
+2025-08-12 13:33:43.418 - connection open
+2025-08-12 13:33:43.441 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 1334836
+2025-08-12 13:33:43.464 - services.websocket_manager - INFO - Streams count 검증 성공: 777 -> 5
+2025-08-12 13:33:43.498 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-12 13:37:20.246 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-12 13:37:20.283 - services.websocket_manager - INFO - 클라이언트 연결 종료: 789fb470-f6e0-4bb5-ac1c-8be837d7e99d
+2025-08-12 13:37:20.313 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-12 13:37:20.331 - services.websocket_manager - INFO - WebSocket 연결 해제: 789fb470-f6e0-4bb5-ac1c-8be837d7e99d
+2025-08-12 13:37:20.358 - services.websocket_manager - INFO - WebSocket 연결 해제: 789fb470-f6e0-4bb5-ac1c-8be837d7e99d
+2025-08-12 13:37:20.378 - connection closed
+2025-08-12 13:38:09.931 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-12 13:38:09.949 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-12 13:38:09.992 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-12 13:38:10.009 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 857325)
+2025-08-12 13:38:10.040 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-12 13:38:10.893 - 192.168.100.3:57312 - "WebSocket /deepstream/ws" [accepted]
+2025-08-12 13:38:10.930 - services.websocket_manager - INFO - 새 WebSocket 연결: 961e18c2-bbcb-47f2-89b9-84c8f989845b
+2025-08-12 13:38:10.966 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: 961e18c2-bbcb-47f2-89b9-84c8f989845b
+2025-08-12 13:38:11.000 - connection open
+2025-08-12 13:38:11.025 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 1339586
+2025-08-12 13:38:11.039 - services.websocket_manager - INFO - Streams count 검증 성공: 777 -> 5
+2025-08-12 13:38:11.053 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-12 13:39:18.150 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-12 13:39:18.183 - services.websocket_manager - INFO - 클라이언트 연결 종료: 961e18c2-bbcb-47f2-89b9-84c8f989845b
+2025-08-12 13:39:18.234 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-12 13:39:18.259 - services.websocket_manager - INFO - WebSocket 연결 해제: 961e18c2-bbcb-47f2-89b9-84c8f989845b
+2025-08-12 13:39:18.298 - services.websocket_manager - INFO - WebSocket 연결 해제: 961e18c2-bbcb-47f2-89b9-84c8f989845b
+2025-08-12 13:39:18.330 - connection closed
+2025-08-12 13:39:33.796 - services.process_launcher - INFO - Config 파일 생성 완료: /mnt/storage/admin_storage/deepstream_vmnt/DeepStream-Yolo/_logs/test/ds_config_777.txt (streams: 5)
+2025-08-12 13:39:33.821 - services.process_launcher - INFO - DeepStream 앱 실행 시작: 777
+2025-08-12 13:39:33.867 - services.deepstream_manager - INFO - 새 인스턴스 등록: 777
+2025-08-12 13:39:33.872 - services.process_launcher - INFO - DeepStream 앱 실행 성공: 777 (Host PID: 859292)
+2025-08-12 13:39:33.898 - 192.168.100.123:0 - "POST /deepstream/processes/launch HTTP/1.1" 200
+2025-08-12 13:39:34.755 - 192.168.100.3:36276 - "WebSocket /deepstream/ws" [accepted]
+2025-08-12 13:39:34.788 - services.websocket_manager - INFO - 새 WebSocket 연결: 24036021-a560-473e-bc97-a0a1c8087b41
+2025-08-12 13:39:34.816 - routes.deepstream.websocket - INFO - 새로운 WebSocket 연결: 24036021-a560-473e-bc97-a0a1c8087b41
+2025-08-12 13:39:34.843 - connection open
+2025-08-12 13:39:34.865 - services.websocket_manager - INFO - DeepStream-app으로부터 PID 수신: 777 -> 1341328
+2025-08-12 13:39:34.883 - services.websocket_manager - INFO - Streams count 검증 성공: 777 -> 5
+2025-08-12 13:39:34.911 - services.websocket_manager - INFO - 앱 준비 완료 처리: 777
+2025-08-12 13:45:18.057 - 192.168.100.123:0 - "GET /deepstream/processes/ HTTP/1.1" 500
+2025-08-12 13:45:18.110 - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/middleware/cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/fastapi/routing.py", line 302, in app
+    raw_response = await run_endpoint_function(
+  File "/home/cityeyelab/pkgs/python_envs/.legacy_backend/lib/python3.10/site-packages/fastapi/routing.py", line 213, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/mnt/storage/admin_storage/traffic_anls-gpu_server/routes/deepstream/processes.py", line 61, in get_all_processes
+    docker_container=process.docker_container,
+AttributeError: 'ProcessInfo' object has no attribute 'docker_container'
+2025-08-12 13:47:30.086 - Shutting down
+2025-08-12 13:47:30.087 - services.websocket_manager - INFO - WebSocket 연결 종료: 777
+2025-08-12 13:47:30.125 - services.websocket_manager - INFO - 클라이언트 연결 종료: 24036021-a560-473e-bc97-a0a1c8087b41
+2025-08-12 13:47:30.149 - services.websocket_manager - INFO - 인스턴스 연결 해제: 777
+2025-08-12 13:47:30.180 - services.websocket_manager - INFO - WebSocket 연결 해제: 24036021-a560-473e-bc97-a0a1c8087b41
+2025-08-12 13:47:30.218 - services.websocket_manager - INFO - WebSocket 연결 해제: 24036021-a560-473e-bc97-a0a1c8087b41
+2025-08-12 13:47:30.255 - connection closed
+2025-08-12 13:47:30.287 - Waiting for application shutdown.
+2025-08-12 13:47:30.312 - root - INFO - Stopping application...
+2025-08-12 13:47:30.337 - Application shutdown complete.
+2025-08-12 13:47:30.359 - Finished server process [1165838]
+2025-08-12 13:47:32.105 - Started server process [869498]
+2025-08-12 13:47:32.106 - Waiting for application startup.
+2025-08-12 13:47:32.123 - root - INFO - Starting application...
+2025-08-12 13:47:32.145 - Application startup complete.
+2025-08-12 13:47:32.169 - Uvicorn running on http://0.0.0.0:18000 (Press CTRL+C to quit)
+2025-08-12 13:47:32.832 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-12 13:47:33.071 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200
+2025-08-12 13:47:36.910 - 192.168.100.123:0 - "GET /deepstream/processes/ HTTP/1.1" 200
+2025-08-12 15:21:45.864 - 192.168.100.123:0 - "GET /docs HTTP/1.1" 200
+2025-08-12 15:21:45.976 - 192.168.100.123:0 - "GET /openapi.json HTTP/1.1" 200

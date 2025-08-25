@@ -8,6 +8,10 @@ from contextlib import asynccontextmanager
 from logging.handlers import RotatingFileHandler
 
 from routes.deepstream import router as deepstream_router
+from services.websocket_manager import websocket_manager
+
+# 환경 변수로 설정 가능한 값들
+WEBSOCKET_SHUTDOWN_TIMEOUT = float(os.getenv("WEBSOCKET_SHUTDOWN_TIMEOUT", "30.0"))
 
 log_dir = Path("logs")
 log_dir.mkdir(exist_ok=True)
@@ -46,6 +50,15 @@ async def lifespan(app: FastAPI):
     yield
     # Shutdown
     logging.info("Stopping application...")
+    try:
+        # 모든 WebSocket 연결을 gracefully 종료
+        await websocket_manager.graceful_shutdown(timeout=WEBSOCKET_SHUTDOWN_TIMEOUT)
+        logging.info("All WebSocket connections have been gracefully closed")
+    except Exception as e:
+        logging.error(f"WebSocket graceful shutdown error: {e}")
+        logging.error("Some WebSocket connections may have been forcefully closed")
+    
+    logging.info("Application 종료 완료")
 
 app = FastAPI(
     title="DeepStream 관리 API",

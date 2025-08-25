@@ -300,13 +300,20 @@ docker exec deepstream_container pkill -f "APP_ID=stream_alpha"
   "stream_id": <정수>,
   "camera_id": <정수>,
   "camera_type": <"videostream", "fileset", "file">,
-  "path": "<분석 대상 폴더/파일 경로>",
-  "name": "<대상 이름>",
-  "output_dir": "<결과 출력 폴더 경로>"
+  "camera_path": "<분석 대상 폴더/파일 경로>",
+  "camera_name": "<대상 이름>",
+  "output_dir": "<결과 출력 폴더 경로>",
+  "init_file": {
+      "file_type": <"videostream", "file">,
+      "file_id": <정수>,
+      "file_path": "<파일 경로>",
+      "file_name": "<파일 이름>",
+      "output_path": "이 영상 파일에 대한 track output 파일의 경로"
+  },
 }
 ```
 
-주요 필드 설명: `stream_id`는 사용하려는 스트림 슬롯, `camera_id`는 해당 작업의 고유 ID, `camera_type`은 폴더 vs 파일 단위(추후 rtsp, http 등 video stream도 추가 예정), `path`와 `name`은 분석 대상 위치 정보, `output_dir`는 DeepStream이 결과를 저장할 경로입니다. 이 메시지를 받으면 DeepStream은 해당 정보를 토대로 **새로운 파이프라인 실행 준비**를 하고, 
+주요 필드 설명: `stream_id`는 사용하려는 스트림 슬롯, `camera_id`는 해당 작업의 고유 ID, `camera_type`은 폴더 vs 파일 단위(추후 rtsp, http 등 video stream도 추가 예정), `camera_path`와 `camera_name`은 분석 대상 위치 정보, `output_dir`는 DeepStream이 결과를 저장할 경로입니다. 이 메시지를 받으면 DeepStream은 해당 정보를 토대로 **새로운 파이프라인 실행 준비**를 하고, 
 - **DeepStream -> FastAPI 보내는 메시지 필드:**  
 DeepStream은 `start_analysis` 메시지에 대해 **아래와 같은 응답**을 FastAPI로 전송합니다.
     - 성공 시:
@@ -350,17 +357,17 @@ DeepStream은 `start_analysis` 메시지에 대해 **아래와 같은 응답**�
   "request_id": "<UUID>",
   "stream_id": X,
   "camera_id": Y,
-  "items_count": <items에 포함된 파일의 개수. eos 객체는 개수에서 제외됨.>,
-  "items": [
+  "files_count": <files에 포함된 파일의 개수. eos 객체는 개수에서 제외됨.>,
+  "files": [
     {
-      "item_type": "file",
+      "file_type": "file",
       "file_id": <정수>,
       "file_path": "<파일1 경로>",
       "file_name": "<파일1 이름>",
       "output_path": "이 영상 파일에 대한 track output 파일의 경로"
     },
     {
-      "item_type": "file",
+      "file_type": "file",
       "file_id": <정수>,
       "file_path": "<파일2 경로>",
       "file_name": "<파일2 이름>",
@@ -368,16 +375,16 @@ DeepStream은 `start_analysis` 메시지에 대해 **아래와 같은 응답**�
     },
     ...,
     {
-      "item_type": "eos"
+      "file_type": "eos"
     }
   ],
 }
 ```
 
-설명: `items` 배열에 한 번에 여러 파일을 보낼 수 있으며, 각 항목에 `item_type`을 넣어 구분합니다. `item_type: "file"`에는 실제 파일 경로와 이름을 주고, `item_type: "eos"`는 **해당 시퀀스의 끝**임을 나타내는 특수 아이템입니다. `file_count`는 보내는 파일 개수(N)를 명시적으로 적어 줄 수도 있습니다 (혹은 배열 길이로 판단 가능하므로 선택사항). `output_file_name`은 향후 필요 시 각 파일별 결과를 식별하기 위한 이름인데, 현재는 **예약 필드**로서 일단 전달만 하고 DeepStream 측에서는 사용하지 않을 수 있습니다. FastAPI는 이 메시지를 여러 번에 걸쳐 보낼 수도 있고, 작은 폴더의 경우 한 번에 파일 리스트 전체를 보낼 수도 있습니다.
+설명: `files` 배열에 한 번에 여러 파일을 보낼 수 있으며, 각 항목에 `file_type`을 넣어 구분합니다. `file_type: "file"`에는 실제 파일 경로와 이름을 주고, `file_type: "eos"`는 **해당 시퀀스의 끝**임을 나타내는 특수 아이템입니다. `files_count`는 보내는 파일 개수(N)를 명시적으로 적어 줄 수도 있습니다 (혹은 배열 길이로 판단 가능하므로 선택사항). `output_path`은 향후 필요 시 각 파일별 결과를 식별하기 위한 이름인데, 현재는 **예약 필드**로서 일단 전달만 하고 DeepStream 측에서는 사용하지 않을 수 있습니다. FastAPI는 이 메시지를 여러 번에 걸쳐 보낼 수도 있고, 작은 폴더의 경우 한 번에 파일 리스트 전체를 보낼 수도 있습니다.
 - **DeepStream -> FastAPI 보내는 메시지 필드:**  
 DeepStream은 파일 경로들을 수신하면 즉시 응답을 보내기보다는, **처리 진행 중 또는 완료 후**에 상황에 따라 메시지를 보냅니다:
-    - 만약 `push_file` 메시지의 `stream_id`나 `camera_id`가 현재 DeepStream이 인지하고 있는 **진행 중 세션과 불일치**할 경우 (예: FastAPI 쪽 버그로 잘못된 ID를 보냈거나, 이미 해당 스트림에 다른 camera 작업이 진행 중인데 잘못된 camera\_id로 보낸 경우 등), DeepStream은 즉각 에러 응답을 보냅니다. 예:
+    - 만약 `push_file` 메시지의 `stream_id`나 `camera_id`가 현재 DeepStream이 인지하고 있는 **진행 중 세션과 불일치**할 경우 (예: FastAPI 쪽 버그로 잘못된 ID를 보냈거나, 이미 해당 스트림에 다른 camera 작업이 진행 중인데 잘못된 `camera_id`로 보낸 경우 등), DeepStream은 즉각 에러 응답을 보냅니다. 예:
 
 ```
 {
@@ -418,7 +425,7 @@ FastAPI는 이를 받아 잘못된 요청을 로그로 남기거나 오류 처�
 ```
 
 식으로 보낼 수도 있습니다. (이 부분은 시스템 요구사항에 따라 추가 설계 가능합니다.)
-    - 모든 파일을 처리하고 `item_type: "eos"`에 도달하면, DeepStream은 해당 스트림의 작업을 **완전히 마무리**합니다. 이때 **객체 추적 상태 등 내부 상태를 리셋**하여 다음 작업을 받을 준비를 하고, FastAPI에 최종 완료 메시지를 전송합니다: 
+    - 모든 파일을 처리하고 `file_type: "eos"`에 도달하면, DeepStream은 해당 스트림의 작업을 **완전히 마무리**합니다. 이때 **객체 추적 상태 등 내부 상태를 리셋**하여 다음 작업을 받을 준비를 하고, FastAPI에 최종 완료 메시지를 전송합니다: 
 
 ```
 {
@@ -496,7 +503,7 @@ DeepStream은 `interrupt` 요청을 받으면 상황에 따라 두 가지 응답
 
 ```
 { 
-  "action": "terminate_app"
+  "type": "terminate_app"
   "request_id": "<UUID>",
 }
 ```
